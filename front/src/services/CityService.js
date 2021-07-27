@@ -9,7 +9,6 @@
             try{
                 const res= await axios.get(url)
                 const data = res.data
-                console.log(data)
                  return data
                 
             } catch(err){

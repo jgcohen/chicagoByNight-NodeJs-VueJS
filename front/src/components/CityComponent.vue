@@ -1,6 +1,12 @@
 <template>
   <div class="container">
     <h1>The Cities</h1>
+    <div>
+<label for="create-city">new city</label>
+<input type="text" id="create-city" v-model="text" placeholder="Create a city">
+<button v-on:click="createCity">Create! </button>
+
+    </div>
     <hr />
     <p class="error" v-if="error">{{ error }}</p>
     <div class="posts-container">
@@ -10,8 +16,10 @@
         v-bind:item="city"
         v-bind:index="index"
         v-bind:key="city._id"
+        v-on:dblclick="deleteCity(city._id)"
       >
-      <p class="text">{{city.name}}</p></div>
+      <p class="text">{{city.name}}</p>
+     </div>
     </div>
   </div>
 </template>
@@ -29,11 +37,23 @@ export default {
   },
   async created() {
     try {
-      this.cities = await CityService.getCities();
+      this.cities = await CityService.getCities()
     } catch (err) {
       this.error = err.message;
     }
   },
+  methods: {
+    async createCity(){
+      await CityService.insertCity(this.text)
+      this.cities = await CityService.getCities()
+      
+    },
+    async deleteCity(id){
+      if(confirm("Do you really want to delete?")){
+      await CityService.deleteCity(id)
+      this.cities = await CityService.getCities()
+    }},
+  }
 };
 </script>
 
