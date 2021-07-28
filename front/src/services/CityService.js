@@ -1,4 +1,4 @@
- import axios from 'axios'
+import axios from 'axios'
 
  const url = 'http://localhost:3000/city/'
 
@@ -24,6 +24,10 @@
 
     static deleteCity(id){
         return axios.delete(`${url}${id}`)
+    }
+
+    static getCity(id){
+        return axios.get(`${url}${id}`)
     }
  }
 

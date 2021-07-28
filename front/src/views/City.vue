@@ -18,7 +18,7 @@
         v-bind:key="city._id"
         v-on:dblclick="deleteCity(city._id)"
       >
-      <p class="text">{{city.name}}</p>
+      <p class="text"><router-link :to="`/city/${city._id}`">{{city.name}}</router-link> </p>
      </div>
     </div>
   </div>
@@ -62,14 +62,12 @@ div.container {
   max-width: 800px;
   margin: 0 auto;
 }
-
 p.error {
   border: 1px solid #ff5b5f;
   background-color: #ffc5c1;
   padding: 10px;
   margin-bottom: 15px;
 }
-
 div.post {
   position: relative;
   border: 1px solid #5bd658;
@@ -77,7 +75,6 @@ div.post {
   padding: 10px 10px 30px 10px;
   margin-bottom: 15px;
 }
-
 div.created-at {
   position: absolute;
   top: 0;
@@ -85,7 +82,6 @@ div.created-at {
   padding: 5px 15px 5px 15px;
   background-color: darkgreen;
 }
-
 p.text {
   font-size: 22px;
   font-weight: 700;
