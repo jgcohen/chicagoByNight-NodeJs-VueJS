@@ -6,6 +6,7 @@
 <input type="text" id="create-city" v-model="text" placeholder="Create a city">
 <button v-on:click="createCity">Create! </button>
     </div>
+
   </div>
 </template>
 
@@ -15,29 +16,19 @@ export default {
   name: "SingleCityComponent",
   data() {
     return {
-      city: this.$route.params.id,
+      city: 'this.$route.params.id',
       error: "",
       name: "",
     };
   },
   async created() {
-    try {
+      try {
+        console.log(this.$route.params.id)
       this.city = await CityService.getCity(id)
+      console.log(this.city)
     } catch (err) {
       this.error = err.message;
     }
-  },
-  methods: {
-    async createCity(){
-      await CityService.insertCity(this.text)
-      this.cities = await CityService.getCities()
-      
-    },
-    async deleteCity(id){
-      if(confirm("Do you really want to delete?")){
-      await CityService.deleteCity(id)
-      this.cities = await CityService.getCities()
-    }},
   }
 };
 </script>
