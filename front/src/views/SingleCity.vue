@@ -1,13 +1,17 @@
 <template>
   <div class="container">
+    <div v-if="city">
     <h1>{{city[0].name}}</h1>
+    <p>{{city[0].description}}</p>
 
-    <!-- <div>
-<label for="create-city">new city</label>
-<input type="text" id="create-city" v-model="text" placeholder="Create a city">
-<button v-on:click="createCity">Create! </button>
-    </div> -->
-
+    <div>
+<label for="update-name">Update Name</label>
+<input type="text" id="update-name" v-model="name" placeholder="City's name">
+<label for="update-description">Update Description</label>
+<input type="text" id="update-description" v-model="description" placeholder="City's description">
+<button v-on:click="updateCity">Create! </button>
+    </div>
+</div>
   </div>
 </template>
 
@@ -20,6 +24,7 @@ export default {
       city: "",
       error: "",
       name: "",
+      description:""
     };
   },
  
@@ -27,11 +32,19 @@ export default {
       try {
       const response = await CityService.getCity(this.$route.params.id)
       this.city = response.data
-      console.log(this.city[0].name)
+      // console.log(this.city[0].name)
     } catch (err) {
       this.error = err.message;
     }
-  }
+  },
+  methods: {
+     async updateCity(id,name,description){
+      console.log(this.$route.params.id)
+      if(confirm("Do you really want to update?")){
+      await CityService.updateCity(this.$route.params.id,name,description)
+      this.cities = await CityService.getCities()
+      }},
+  },
 };
 </script>
 

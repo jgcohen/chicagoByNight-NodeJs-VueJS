@@ -16,9 +16,9 @@ import axios from 'axios'
             }
         }
     
-    static insertCity (name){
+    static insertCity (name,description){
         return axios.post(url, {
-            name
+            name,description
         })
     }
 
@@ -29,6 +29,10 @@ import axios from 'axios'
     static getCity(id){
         //  console.log(axios.get(`${url}${id}`))
         return axios.get(`${url}${id}`)
+    }
+
+    static updateCity(id,name,description){
+        return axios.patch(`${url}${id}`,name,description)
     }
  }
 

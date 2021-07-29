@@ -6,6 +6,12 @@ const CitySchema = new mongoose.Schema({
         required: true,
         trim: true,
         lowercase: true,
+    },
+    description:{
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true,
     }
 })
 

@@ -2,8 +2,10 @@
   <div class="container">
     <h1>The Cities</h1>
     <div>
-<label for="create-city">new city</label>
-<input type="text" id="create-city" v-model="text" placeholder="Create a city">
+<label for="name">City's name</label>
+<input type="text" id="name" v-model="name" placeholder="Name">
+<label for="description">City's name</label>
+<input type="text" id="description" v-model="description" placeholder="Description">
 <button v-on:click="createCity">Create! </button>
 
     </div>
@@ -44,7 +46,7 @@ export default {
   },
   methods: {
     async createCity(){
-      await CityService.insertCity(this.text)
+      await CityService.insertCity(this.name,this.description)
       this.cities = await CityService.getCities()
       
     },
