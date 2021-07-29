@@ -1,11 +1,12 @@
 <template>
   <div class="container">
-    <h1>{{city.name}}</h1>
-    <div>
+    <h1>{{city[0].name}}</h1>
+
+    <!-- <div>
 <label for="create-city">new city</label>
 <input type="text" id="create-city" v-model="text" placeholder="Create a city">
 <button v-on:click="createCity">Create! </button>
-    </div>
+    </div> -->
 
   </div>
 </template>
@@ -16,16 +17,17 @@ export default {
   name: "SingleCityComponent",
   data() {
     return {
-      city: 'this.$route.params.id',
+      city: "",
       error: "",
       name: "",
     };
   },
+ 
   async created() {
       try {
-        console.log(this.$route.params.id)
-      this.city = await CityService.getCity(id)
-      console.log(this.city)
+      const response = await CityService.getCity(this.$route.params.id)
+      this.city = response.data
+      console.log(this.city[0].name)
     } catch (err) {
       this.error = err.message;
     }

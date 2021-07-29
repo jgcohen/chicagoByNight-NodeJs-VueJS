@@ -27,6 +27,7 @@ import axios from 'axios'
     }
 
     static getCity(id){
+        //  console.log(axios.get(`${url}${id}`))
         return axios.get(`${url}${id}`)
     }
  }
