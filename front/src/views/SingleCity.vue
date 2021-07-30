@@ -1,9 +1,8 @@
 <template>
   <div class="container">
     <div v-if="city">
-    <h1>{{city[0].name}}</h1>
-    <p>{{city[0].description}}</p>
-
+    <h1>{{city.name}}</h1>
+    <p>{{city.description}}</p>
     <div>
 <label for="update-name">Update Name</label>
 <input type="text" id="update-name" v-model="name" placeholder="City's name">
@@ -27,21 +26,21 @@ export default {
       description:""
     };
   },
- 
+
   async created() {
       try {
-      const response = await CityService.getCity(this.$route.params.id)
-      this.city = response.data
-      // console.log(this.city[0].name)
+        this.city = await CityService.getCity(this.$route.params.id)
+        this.name = this.city.name
+        this.description = this.city.description
     } catch (err) {
       this.error = err.message;
     }
   },
   methods: {
-     async updateCity(id,name,description){
+     async updateCity() {
       console.log(this.$route.params.id)
       if(confirm("Do you really want to update?")){
-      await CityService.updateCity(this.$route.params.id,name,description)
+      await CityService.updateCity(this.$route.params.id, this.name, this.description)
       this.cities = await CityService.getCities()
       }},
   },
