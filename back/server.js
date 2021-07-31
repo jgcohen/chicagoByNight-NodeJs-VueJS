@@ -1,6 +1,8 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import routes from  './routes/route.js'
+import privateRoutes from './routes/privateRoutes.js'
+import passport from 'passport'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import './auth/auth.js'
@@ -18,7 +20,8 @@ mongoose.connect(process.env.MONGODB, {
     useFindAndModify: false
  })
 
- 
+ app.use('/private', passport.authenticate('jwt',{session:false}), 
+ privateRoutes)
 app.use(routes)
 
 app.listen(PORT,()=> {
