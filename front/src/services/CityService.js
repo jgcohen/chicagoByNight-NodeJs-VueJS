@@ -1,39 +1,30 @@
 import axios from 'axios'
 
- const url = 'http://localhost:3000/city/'
+const url = 'http://localhost:3000/city'
 
- class CityService{
-    
+class CityService {
+
     static async getCities(){
-       
-            try{
-                const res= await axios.get(url)
-                const data = res.data
-                 return data
-                
-            } catch(err){
-                return err;
-            }
-        }
-    
-    static insertCity (name,description){
-        return axios.post(url, {
-            name,description
-        })
+       return axios.get(url).then(res => res.data).catch(err => err)
     }
 
-    static deleteCity(id){
-        return axios.delete(`${url}${id}`)
-    }
+   static insertCity (name,description){
+       return axios.post(url, {
+           name,description
+       })
+   }
 
-    static getCity(id){
-        //  console.log(axios.get(`${url}${id}`))
-        return axios.get(`${url}${id}`)
-    }
+   static deleteCity(id){
+       return axios.delete(`${url}/${id}`)
+   }
 
-    static updateCity(id,name,description){
-        return axios.patch(`${url}${id}`,name,description)
-    }
- }
+   static getCity(id){
+       return axios.get(`${url}/${id}`).then(res => res.data[0]).catch(err => err)
+   }
 
- export default CityService
+   static updateCity(id,name,description){
+       return axios.patch(`${url}/${id}`, { name, description })
+   }
+}
+
+export default CityService
