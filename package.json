@@ -17,7 +17,12 @@
   },
   "homepage": "https://github.com/jgcohen/chicagoByNight-NodeJs-VueJS#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^8.5.1",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
   }
 }

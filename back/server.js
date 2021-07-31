@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 import routes from  './routes/route.js'
 import dotenv from 'dotenv'
 import cors from 'cors'
-import bodyParser from'body-parser'
+import './auth/auth.js'
 dotenv.config()
 
 const PORT = process.env.PORT || 3000
