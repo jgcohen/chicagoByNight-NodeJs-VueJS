@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import City from '../views/City.vue'
 import SingleCity from '../views/SingleCity.vue'
+import SignUp from '../views/SignUp.vue'
+import Login from '../views/Login.vue'
 
 
 const routes = [
@@ -28,6 +30,16 @@ const routes = [
     name:'City',
     component: SingleCity
 
+  },
+  {
+    path:'/signup',
+    name:'Signup',
+    component: SignUp
+  },
+  {
+    path:'/login',
+    name:'login',
+    component: Login
   }
 ]
 
