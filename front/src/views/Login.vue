@@ -1,17 +1,25 @@
 <template>
   <div class="container">
-      <div>
-<label for="name">Register</label>
-<input type="email" id="email" v-model="email" placeholder="Email">
-<label for="password">your Email</label>
-<input type="password" id="password" v-model="password" placeholder="password">
-<button v-on:click="connectUser">Register </button>
-
+    <div>
+      <label for="name">Register</label>
+      <input type="email" id="email" v-model="email" placeholder="Email" />
+      <label for="password">your Email</label>
+      <input
+        type="password"
+        id="password"
+        v-model="password"
+        placeholder="password"
+      />
+      <button v-on:click="connectUser">Register</button>
+    </div>
+    <div v-if="user">
+      <p>{{ user.data.body._id }}</p>
     </div>
   </div>
 </template>
 
 <script>
+
 import LoginService from "../services/LoginService";
 export default {
   name: "LoginComponent",
@@ -21,17 +29,28 @@ export default {
       error: "",
       email:'',
       password:'',
- 
-     
     };
   },
 
-  methods: {
+ methods: {
      async connectUser(){
-      await LoginService.connectUser(this.email,this.password)  
-    },
+      const user = await LoginService.connectUser(this.email,this.password).then(res => {
+          //if successfull
+          if (res.status === 200) {
+            localStorage.setItem('token', res.data.token);
+            this.$router.push('/');
+          }
+        }, err => {
+          console.log(err.response);
+          this.error = err.response.data.error
+        })
+      //  console.log(user.data.token)
+      //  console.log(user.data.body._id)
+      //  localStorage.setItem('user' , JSON.stringify(user.data.token))
+     }
+
   },
-};
+}
 </script>
 
 <style scoped>
