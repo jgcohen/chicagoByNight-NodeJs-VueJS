@@ -28,7 +28,7 @@ export default {
 
   methods: {
      async connectUser(){
-      await LoginService.connectUser(this.email,this.password)    
+      await LoginService.connectUser(this.email,this.password)  
     },
   },
 };

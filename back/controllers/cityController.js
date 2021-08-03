@@ -2,7 +2,7 @@ import CityModel from "../models/cityModel.js";
 
 export const getCities = async (req, res) => {
   const cities = await CityModel.find({});
-  res.send(cities);
+  res.send(cities); 
 };
 
 export const getCity = async (req, res) => {

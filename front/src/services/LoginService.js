@@ -8,6 +8,7 @@ class LoginService {
         return axios.post(url, {
             email,password
         })
+      
 }
 }
 

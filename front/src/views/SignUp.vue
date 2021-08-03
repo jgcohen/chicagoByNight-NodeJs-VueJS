@@ -28,7 +28,8 @@ export default {
 
   methods: {
      async createUser(){
-      await SignUpService.insertUser(this.email,this.password)    
+      await SignUpService.insertUser(this.email,this.password)  
+      this.$router.push('/login')
     },
   },
 };

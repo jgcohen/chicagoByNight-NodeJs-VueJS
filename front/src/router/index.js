@@ -4,6 +4,7 @@ import City from '../views/City.vue'
 import SingleCity from '../views/SingleCity.vue'
 import SignUp from '../views/SignUp.vue'
 import Login from '../views/Login.vue'
+import Npc from '../views/Npc.vue'
 
 
 const routes = [
@@ -40,6 +41,11 @@ const routes = [
     path:'/login',
     name:'login',
     component: Login
+  },
+  {
+    path:'/npc',
+    name:'npc',
+    component: Npc
   }
 ]
 

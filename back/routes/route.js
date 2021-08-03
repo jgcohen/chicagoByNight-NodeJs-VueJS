@@ -1,6 +1,7 @@
 import express from 'express' 
 import passport from 'passport'
 import { addCity, getCities, getCity, updateCity, deleteCity } from '../controllers/cityController.js'
+import { addPNJ, getPNJS, getPNJ, updatePNJ, deletePNJ } from '../controllers/PNJController.js'
 import { catchErrors } from '../helpers.js'
 import  jwt  from 'jsonwebtoken'
  
@@ -34,11 +35,18 @@ router.post('/login',(req,res,next)=>{
               const body = {_id:user._id, email: user.email}
               const token = jwt.sign({user:body},'orihulk17')  
               res.json({token, body})
+              res.send({token,body})
           })
         }catch(error){
             return next (error)
         }
     })(req,res,next)
 })
+
+router.get('/pnj', catchErrors(getPNJS))
+router.get('/pnj/:id', catchErrors(getPNJ))
+router.post('/pnj', catchErrors(addPNJ))
+router.patch('/pnj/:id', catchErrors(updatePNJ))
+router.delete('/pnj/:id', catchErrors(deletePNJ))
 
 export default router 
