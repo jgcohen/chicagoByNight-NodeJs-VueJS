@@ -8,7 +8,7 @@
 
 <script>
 // @ is an alias to /src
-import axios from 'axios';
+
 import HelloWorld from '@/components/HelloWorld.vue'
 
 
@@ -18,19 +18,21 @@ export default {
     HelloWorld
   },
     created() {
-    //user is not authorized
     if (localStorage.getItem('token') === null) {
       this.$router.push('/login');
+    }else{
+      fetch("http://localhost:3000/user",{
+        method:'GET',
+        header:{
+          'Authorization': localStorage.getItem('token') 
+        }
+      }).then(res=>res.json())
+      .then(res=>{
+        this.user = UserService.getUser( localStorage.getItem('token').user._id)
+      })
     }
   },
-    // mounted() {
-     
-    //   axios.get('http://localhost:3000/user/', { headers: { token: localStorage.getItem('token')}})
-    //     .then(res => {
-    //       this.name = res.data.user.name;
-    //       this.email = res.data.user.email;
-    //     })
-    // },
+ 
      methods: {
     logout() {
       localStorage.clear();
