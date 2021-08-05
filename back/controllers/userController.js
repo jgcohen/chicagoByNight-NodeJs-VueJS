@@ -1,6 +1,9 @@
 import UserModel from "../models/userModel.js";
 
-
+export const getUsers = async (req, res) => {
+  const users = await UserModel.find({});
+  res.send(users);
+};
 export const getUser = async (req, res,next) => {
   const user = await UserModel.find({ _id: req.params.id });
   if (!user) {
