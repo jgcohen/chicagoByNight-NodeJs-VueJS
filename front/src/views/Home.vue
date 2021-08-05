@@ -23,14 +23,14 @@ export default {
       this.$router.push('/login');
     }
   },
-    mounted() {
+    // mounted() {
      
-      axios.get('http://localhost:3000/user/', { headers: { token: localStorage.getItem('token')}})
-        .then(res => {
-          this.name = res.data.user.name;
-          this.email = res.data.user.email;
-        })
-    },
+    //   axios.get('http://localhost:3000/user/', { headers: { token: localStorage.getItem('token')}})
+    //     .then(res => {
+    //       this.name = res.data.user.name;
+    //       this.email = res.data.user.email;
+    //     })
+    // },
      methods: {
     logout() {
       localStorage.clear();

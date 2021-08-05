@@ -17,6 +17,8 @@ router.get('/city/:id', catchErrors(getCity))
 router.post('/city', catchErrors(addCity))
 router.patch('/city/:id', catchErrors(updateCity))
 router.delete('/city/:id', catchErrors(deleteCity))
+
+const maxAge = 3*24*60*60*1000
 router.post('/signup', passport.authenticate('signup', {session: false}),
 async(req,res,next)=>{
     res.json({
@@ -34,7 +36,8 @@ router.post('/login',(req,res,next)=>{
           req.login(user,{session: false}, async error =>{
               if(error)return next(error)
               const body = {_id:user._id, email: user.email}
-              const token = jwt.sign({user:body},'orihulk17')  
+              const token = jwt.sign({user:body},'orihulk17',{expiresIn: maxAge})  
+              res.cookie('jwt',token,{httpOnly: true, maxAge:maxAge})
               res.json({token, body})
               res.send({token,body})
           })

@@ -34,7 +34,7 @@ export default {
 
  methods: {
      async connectUser(){
-      const user = await LoginService.connectUser(this.email,this.password).then(res => {
+       await LoginService.connectUser(this.email,this.password).then(res => {
           //if successfull
           if (res.status === 200) {
             localStorage.setItem('token', res.data.token);
@@ -44,8 +44,8 @@ export default {
           console.log(err.response);
           this.error = err.response.data.error
         })
-      //  console.log(user.data.token)
-      //  console.log(user.data.body._id)
+        // console.log(user.data.token)
+        // console.log(user.data.body._id)
       //  localStorage.setItem('user' , JSON.stringify(user.data.token))
      }
 

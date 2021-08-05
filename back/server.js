@@ -1,9 +1,11 @@
 import express from 'express'
+import cookieParser from 'cookie-parser'
 import mongoose from 'mongoose'
 import routes from  './routes/route.js'
 import privateRoutes from './routes/privateRoutes.js'
 import passport from 'passport'
 import dotenv from 'dotenv'
+import { checkUser, requiereAuth} from './middleware/auth.middleware.js'
 import cors from 'cors'
 import './auth/auth.js'
 
@@ -14,13 +16,18 @@ const app = express()
 
 
 
-
+app.use(cookieParser())
 app.use(express.json())
 app.use(cors());
 mongoose.connect(process.env.MONGODB, {
     useNewUrlParser: true,
     useUnifiedTopology:true,
     useFindAndModify: false
+ })
+
+ app.get('*',checkUser);
+ app.get('/jwtid',requiereAuth,(req,res)=>{
+     res.status(200).send(res.locals.user._id)
  })
 
  app.use('/private', passport.authenticate('jwt',{session:false}), 
