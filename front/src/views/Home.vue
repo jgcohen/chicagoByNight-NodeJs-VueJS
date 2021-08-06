@@ -2,7 +2,7 @@
   <div>
     <button @click="logout">logout</button>
     <div v-if="user">
-    <h1>HELLO </h1>
+    <h1>HELLO {{user.pseudo}} </h1>
     <h2>your email is: {{ user.email }}</h2>
   </div>
   </div>
@@ -19,7 +19,8 @@ export default {
   data(){
     return {
       user:"",
-      email:""
+      email:"",
+      pseudo:''
     }
   },
   components: {

@@ -13,7 +13,12 @@ const UserSchema = new mongoose.Schema({
         required: true,
     },
     pseudo: {
-        type: String
+        type: String,
+        required: true,
+        unique: true,
+    },
+    characters: {
+        type: Array
     }
 })
 

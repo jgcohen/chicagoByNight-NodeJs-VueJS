@@ -8,11 +8,17 @@ const { Strategy: JWTStrategy, ExtractJwt} = JWT
  new Strategy({
      usernameField: 'email',
      passwordField: 'password',
+     passReqToCallback:true
  },
  
-async(email,password,done)=> {
+async(req,email,password,done)=> {
          try {
-            const user = await UserModel.create({email,password})
+            const user = await UserModel.create({
+                email: email,
+                password:password,
+                pseudo: req.body.pseudo,
+                characters:[]},
+                )
             return done (null, user)
          }catch(error){
            return done(error)

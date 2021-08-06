@@ -1,10 +1,12 @@
 <template>
   <div class="container">
       <div>
-<label for="name">Register</label>
+<label for="email">email</label>
 <input type="email" id="email" v-model="email" placeholder="Email">
-<label for="password">your Email</label>
+<label for="password">Password</label>
 <input type="password" id="password" v-model="password" placeholder="password">
+<label for="pseudo">pseudo</label>
+<input type="text" id="pseudo" v-model="pseudo" placeholder="pseudo">
 <button v-on:click="createUser">Register </button>
 
     </div>
@@ -21,6 +23,7 @@ export default {
       error: "",
       email:'',
       password:'',
+      pseudo:''
  
      
     };
@@ -28,7 +31,7 @@ export default {
 
   methods: {
      async createUser(){
-      await SignUpService.insertUser(this.email,this.password)  
+      await SignUpService.insertUser(this.email,this.password,this.pseudo)  
       this.$router.push('/login')
     },
   },
