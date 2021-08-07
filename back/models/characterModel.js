@@ -2,7 +2,11 @@ import mongoose from 'mongoose'
 const SkillSchema = new mongoose.Schema({
     value:{
         type:Number,
-        required: true
+        required: true,
+        min: 0,
+        max: 5,
+        default:0
+        
     },
     specialities:{
         type:String
@@ -56,43 +60,72 @@ const CharacterSchema = new mongoose.Schema({
     },
     dexterity: {
         type: Number,
-        required:true
+        required:true,
+        min: 0,
+        max: 5,
+        default:0
     },
     stamina: {
         type: Number,
-        required:true
+        required:true,
+        min: 0,
+        max: 5,
+        default:0
     },
     charisma: {
         type: Number,
-        required:true
+        required:true,
+        min: 0,
+        max: 5,
+        default:0
     },
     manipulation: {
         type: Number,
-        required:true
+        required:true,
+        min: 0,
+        max: 5,
+        default:0
     },
     composure: {
         type: Number,
-        required:true
+        required:true,
+        min: 0,
+        max: 5,
+        default:0
     },
     intelligence: {
         type: Number,
-        required:true
+        required:true,
+        min: 0,
+        max: 5,
+        default:0
     },
     wits: {
         type: Number,
-        required:true
+        required:true,
+        min: 0,
+        max: 5,
+        default:0
     },
     resolve: {
         type: Number,
-        required:true
-    },
+        required:true,
+        min: 0,
+        max: 5,
+        default:0    },
     health: {
         type: Number,
-        required:true
+        required:true,
+        min: 0,
+        max: 10,
+        default:stamina+3
     },
     willpower: {
         type: Number,
-        required:true
+        required:true,
+        min: 0,
+        max: 10,
+        default:composure+resolve
     },
     athletics: {
         type: SkillSchema
@@ -175,7 +208,25 @@ const CharacterSchema = new mongoose.Schema({
     technology:{
         type: SkillSchema
     },
+    resonance:{
+        type: String
+    },
+    hunger:{
+        type: Number,
+        min: 0,
+        max: 5,
+        default: 1
+    },
+    humanity:{
+        type:Number,
+        min:0,
+        max:10,
+        default:7
+    },
 
+    disciplines:{
+        type: [String ]
+    }
 
 
 })
