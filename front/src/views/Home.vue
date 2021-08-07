@@ -1,9 +1,18 @@
 <template>
+<div>
   <div>
+     <div id="nav">
     <button @click="logout">logout</button>
+    <router-link to="/cities">Cities</router-link>|
+    <router-link to="/npc">The players</router-link>|
+  <router-view/>
+  </div>
+  </div>
+  <div>
     <div v-if="user">
     <h1>HELLO {{user.pseudo}} </h1>
     <h2>your email is: {{ user.email }}</h2>
+  </div>
   </div>
   </div>
 </template>
@@ -37,7 +46,6 @@ export default {
       //     'Authorization':localStorage.getItem('token') 
       //   }
       // }).then(res=>res.json())
-      
       console.log(localStorage.getItem('token') )
     }
     let token = localStorage.getItem('token')

@@ -9,7 +9,6 @@ const CitySchema = new mongoose.Schema({
     },
     description:{
         type: String,
-        required: true,
         trim: true,
         lowercase: true,
     }

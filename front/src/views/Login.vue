@@ -1,16 +1,19 @@
 <template>
   <div class="container">
     <div>
-      <label for="name">Register</label>
+      <p>Log In</p>
+      <label for="name">E mail</label>
       <input type="email" id="email" v-model="email" placeholder="Email" />
-      <label for="password">your Email</label>
+      <label for="password">Password</label>
       <input
         type="password"
         id="password"
         v-model="password"
         placeholder="password"
       />
-      <button v-on:click="connectUser">Register</button>
+      <button v-on:click="connectUser">Log In</button>
+      <p>Not registerd yet?</p>
+      <router-link to="/signup">register</router-link>
     </div>
     <div v-if="user">
       <p>{{ user.data.body._id }}</p>
@@ -44,9 +47,6 @@ export default {
           console.log(err.response);
           this.error = err.response.data.error
         })
-        // console.log(user.data.token)
-        // console.log(user.data.body._id)
-      //  localStorage.setItem('user' , JSON.stringify(user.data.token))
      }
 
   },

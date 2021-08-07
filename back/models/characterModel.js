@@ -118,14 +118,14 @@ const CharacterSchema = new mongoose.Schema({
         required:true,
         min: 0,
         max: 10,
-        default:stamina+3
+        default: 4
     },
     willpower: {
         type: Number,
         required:true,
         min: 0,
         max: 10,
-        default:composure+resolve
+        default:2
     },
     athletics: {
         type: SkillSchema
