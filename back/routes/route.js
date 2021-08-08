@@ -58,7 +58,7 @@ router.get('/character', catchErrors(getCharacters))
 router.get('/character/:id', catchErrors(getCharacter))
 router.post('/character', catchErrors(addCharacter))
 router.patch('/character/:id', catchErrors(updateCharacter))
-router.delete('/character/:id', catchErrors(deleteCharacter))
+// router.delete('/character/:id', catchErrors(deleteCharacter))
 
 
 router.get('/user/:id', catchErrors(getUser))

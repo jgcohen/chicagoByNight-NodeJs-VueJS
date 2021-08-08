@@ -10,10 +10,26 @@
   </div>
   <div>
     <div v-if="user">
-    <h1>HELLO {{user.pseudo}} </h1>
+    <h1 class="text-danger">HELLO {{user.pseudo}} </h1>
     <h2>your email is: {{ user.email }}</h2>
   </div>
   </div>
+   
+    <div class="posts-container">
+      
+      <div
+       
+        v-for="(character, index) in characters"
+        v-bind:item="character"
+        v-bind:index="index"
+        v-bind:key="character._id"
+        
+      >
+      <div v-if="character.owner === user._id">
+           <p class="text post"><router-link :to="`/character/${character._id}`">{{character.name}}</router-link> </p>
+     </div>
+     </div>
+    </div>
   </div>
 </template>
 
@@ -22,11 +38,12 @@
 import UserService from '../services/UserService'
 import HelloWorld from '@/components/HelloWorld.vue'
 import VueJwtDecode from "vue-jwt-decode";
-
+import CharacterService from '../services/CharacterService'
 export default {
   name: 'Home',
   data(){
     return {
+      characters:[],
       user:"",
       email:"",
       pseudo:''
@@ -56,6 +73,9 @@ export default {
    let user = await UserService.getUser(decoded.user._id)
    this.user= user
 
+  this.characters = await CharacterService.getCharacters()
+
+    
 
   },
  
@@ -67,3 +87,34 @@ export default {
   }
 }
 </script>
+<style scoped>
+div.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+p.error {
+  border: 1px solid #ff5b5f;
+  background-color: #ffc5c1;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+p.post {
+  position: relative;
+  border: 1px solid #5bd658;
+  background-color: 3bcffb8;
+  padding: 10px 10px 30px 10px;
+  margin-bottom: 15px;
+}
+div.created-at {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px 15px 5px 15px;
+  background-color: darkgreen;
+}
+p.text {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+</style>

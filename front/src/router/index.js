@@ -5,6 +5,8 @@ import SingleCity from '../views/SingleCity.vue'
 import SignUp from '../views/SignUp.vue'
 import Login from '../views/Login.vue'
 import Npc from '../views/Npc.vue'
+import CharacterCreation from '../views/CharacterCreation.vue'
+import SingleCharacter from '../views/SingleCharacter.vue'
 
 
 const routes = [
@@ -46,7 +48,18 @@ const routes = [
     path:'/npc',
     name:'npc',
     component: Npc
-  }
+  },
+  {
+    path:'/charactercreation',
+    name:'characterCreation',
+    component: CharacterCreation
+  },
+  {
+    path:`/character/:id`,
+    name:'Character',
+    component: SingleCharacter
+
+  },
 ]
 
 const router = createRouter({

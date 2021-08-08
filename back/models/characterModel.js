@@ -1,22 +1,25 @@
 import mongoose from 'mongoose'
-const SkillSchema = new mongoose.Schema({
-    value:{
-        type:Number,
-        required: true,
-        min: 0,
-        max: 5,
-        default:0
+// const SkillSchema = new mongoose.Schema({
+//     value:{
+//         type:Number,
+//         //required: true,
+//         min: 0,
+//         max: 5,
+//         default:0
         
-    },
-    specialities:{
-        type:String
-    }
-})
+//     },
+//     specialities:{
+//         type:String
+//     }
+// })
 
 const CharacterSchema = new mongoose.Schema({
+    owner:{
+        type:String
+    },
     name: {
         type: String,
-        required: true,
+        // required: true,
         trim: true,
     },
     sire: {
@@ -42,172 +45,415 @@ const CharacterSchema = new mongoose.Schema({
     predator: {
         type: String,
         trim: true,
-        required:true
+        //required:true
     },
     clan:{
         type: String,
         trim: true,
         lowercase: true,
-        required:true
+        //required:true
     },
     generation: {
         type: Number,
-        required:true
+        //required:true
     },
     strength: {
         type: Number,
-        required:true
+        //required:true
     },
     dexterity: {
         type: Number,
-        required:true,
+        //required:true,
         min: 0,
         max: 5,
         default:0
     },
     stamina: {
         type: Number,
-        required:true,
+        //required:true,
         min: 0,
         max: 5,
         default:0
     },
     charisma: {
         type: Number,
-        required:true,
+        //required:true,
         min: 0,
         max: 5,
         default:0
     },
     manipulation: {
         type: Number,
-        required:true,
+        //required:true,
         min: 0,
         max: 5,
         default:0
     },
     composure: {
         type: Number,
-        required:true,
+        //required:true,
         min: 0,
         max: 5,
         default:0
     },
     intelligence: {
         type: Number,
-        required:true,
+        //required:true,
         min: 0,
         max: 5,
         default:0
     },
     wits: {
         type: Number,
-        required:true,
+        //required:true,
         min: 0,
         max: 5,
         default:0
     },
     resolve: {
         type: Number,
-        required:true,
+        //required:true,
         min: 0,
         max: 5,
         default:0    },
     health: {
         type: Number,
-        required:true,
+        //required:true,
         min: 0,
         max: 10,
-        default: 4
+       
     },
     willpower: {
         type: Number,
-        required:true,
+        //required:true,
         min: 0,
         max: 10,
-        default:2
+  
     },
-    athletics: {
-        type: SkillSchema
+    athletics:{
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    athleticsspe:{
+        type: String
     },
     brawl:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    brawlspe:{
+        type: String
     },
     craft:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    craftspe:{
+        type: String
     },
     drive:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    drivespe:{
+        type: String
     },
     firearms:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    firearmsspe:{
+        type: String
     },
     larceny:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    larcenyspe:{
+        type: String
     },
     melee:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    meleespe:{
+        type: String
     },
     stealth:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    stealthspe:{
+        type: String
     },
     survival:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    survivalspe:{
+        type: String
     },
     animalken:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    animalkenspe:{
+        type: String
     },
     etiquette:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    etiquettespe:{
+        type: String
     },
     insight:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    insightspe:{
+        type: String
     },
     intimidation:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    intimidationspe:{
+        type: String
     },
     leadership:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    leadershipspe:{
+        type: String
     },
     performance:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    performancespe:{
+        type: String
     },
     persuasion:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    persuasionspe:{
+        type: String
     },
     streetwise:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    streetwisespe:{
+        type: String
     },
     subterfuge:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    subterfugespe:{
+        type: String
     },
     academics:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
     },
-    awerness:{
-        type: SkillSchema
+    academicsspe:{
+        type: String
+    },
+    awareness:{
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    awarenessspe:{
+        type: String
     },
     finance:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    financespe:{
+        type: String
     },
     investigation:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    investigationspe:{
+        type: String
     },
     medicine:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    medicinespe:{
+        type: String
     },
     occult:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    occultspe:{
+        type: String
     },
     politics:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
     },
-    science:{
-        type: SkillSchema
+    politicsspe:{
+        type: String
+    },
+    scicence:{
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
+    },
+    sciencespe:{
+        type: String
     },
     technology:{
-        type: SkillSchema
+        type: Number,
+        //required: true,
+        min: 0,
+        max:5
     },
+    technologyspe:{
+        type: String
+    },
+    // athletics: {
+    //     type: SkillSchema
+    // },
+    // brawl:{
+    //     type: SkillSchema
+    // },
+    // craft:{
+    //     type: SkillSchema
+    // },
+    // drive:{
+    //     type: SkillSchema
+    // },
+    // firearms:{
+    //     type: SkillSchema
+    // },
+    // larceny:{
+    //     type: SkillSchema
+    // },
+    // melee:{
+    //     type: SkillSchema
+    // },
+    // stealth:{
+    //     type: SkillSchema
+    // },
+    // survival:{
+    //     type: SkillSchema
+    // },
+    // animalken:{
+    //     type: SkillSchema
+    // },
+    // etiquette:{
+    //     type: SkillSchema
+    // },
+    // insight:{
+    //     type: SkillSchema
+    // },
+    // intimidation:{
+    //     type: SkillSchema
+    // },
+    // leadership:{
+    //     type: SkillSchema
+    // },
+    // performance:{
+    //     type: SkillSchema
+    // },
+    // persuasion:{
+    //     type: SkillSchema
+    // },
+    // streetwise:{
+    //     type: SkillSchema
+    // },
+    // subterfuge:{
+    //     type: SkillSchema
+    // },
+    // academics:{
+    //     type: SkillSchema
+    // },
+    // awarness:{
+    //     type: SkillSchema
+    // },
+    // finance:{
+    //     type: SkillSchema
+    // },
+    // investigation:{
+    //     type: SkillSchema
+    // },
+    // medicine:{
+    //     type: SkillSchema
+    // },
+    // occult:{
+    //     type: SkillSchema
+    // },
+    // politics:{
+    //     type: SkillSchema
+    // },
+    // science:{
+    //     type: SkillSchema
+    // },
+    // technology:{
+    //     type: SkillSchema
+    // },
     resonance:{
         type: String
     },
