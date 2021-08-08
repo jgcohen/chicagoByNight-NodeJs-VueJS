@@ -259,6 +259,7 @@
             id="athletics"
             v-model="athletics"
           >
+          <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -282,6 +283,7 @@
             id="animalken"
             v-model="animalken"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -306,6 +308,7 @@
             id="academics"
             v-model="academics"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -332,6 +335,7 @@
             id="brawl"
             v-model="brawl"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -355,6 +359,7 @@
             id="etiquette"
             v-model="etiquette"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -379,6 +384,7 @@
             id="awareness"
             v-model="awareness"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -405,6 +411,7 @@
             id="craft"
             v-model="craft"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -428,6 +435,7 @@
             id="insight"
             v-model="insight"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -452,6 +460,7 @@
             id="finance"
             v-model="finance"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -478,6 +487,7 @@
             id="drive"
             v-model="drive"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -501,6 +511,7 @@
             id="intimidation"
             v-model="intimidation"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -525,6 +536,7 @@
             id="investigation"
             v-model="investigation"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -551,6 +563,7 @@
             id="firearms"
             v-model="firearms"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -574,6 +587,7 @@
             id="leadership"
             v-model="leadership"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -598,6 +612,7 @@
             id="medicine"
             v-model="medicine"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -624,6 +639,7 @@
             id="larceny"
             v-model="larceny"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -647,6 +663,7 @@
             id="performance"
             v-model="performance"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -671,6 +688,7 @@
             id="occult"
             v-model="occult"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -697,6 +715,7 @@
             id="melee"
             v-model="melee"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -720,6 +739,7 @@
             id="persuasion"
             v-model="persuasion"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -744,6 +764,7 @@
             id="politics"
             v-model="politics"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -770,6 +791,7 @@
             id="stealth"
             v-model="stealth"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -793,6 +815,7 @@
             id="streetwise"
             v-model="streetwise"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -817,6 +840,7 @@
             id="science"
             v-model="science"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -843,6 +867,7 @@
             id="survival"
             v-model="survival"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -866,6 +891,7 @@
             id="subterfuge"
             v-model="subterfuge"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -890,6 +916,7 @@
             id="technology"
             v-model="technology"
           >
+           <option value=0>0</option>
              <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>

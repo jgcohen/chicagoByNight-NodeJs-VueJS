@@ -4,7 +4,8 @@
      <div id="nav">
     <button @click="logout">logout</button>
     <router-link to="/cities">Cities</router-link>|
-    <router-link to="/npc">The players</router-link>|
+    <router-link to="/npc">Famous faces</router-link>|
+     <router-link to="/charactercreation">Create a character</router-link>|
   <router-view/>
   </div>
   </div>
