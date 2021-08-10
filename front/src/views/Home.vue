@@ -27,7 +27,7 @@
         
       >
       <div v-if="character.owner === user._id">
-           <p class="text post"><router-link :to="`/updatecharacter/${character._id}`">{{character.name}}</router-link> </p>
+           <p class="text post"><router-link :to="`/character/${character._id}`">{{character.name}}</router-link> </p>
      </div>
      </div>
     </div>

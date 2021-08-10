@@ -46,7 +46,7 @@ class CharacterService {
     larcenyspe,
     melee,
     meleespe,
-    stealt,
+    stealth,
     stealthspe,
     survival,
     survivalspe,
@@ -115,7 +115,17 @@ class CharacterService {
     // {technologyvalue, technologyspecialitie},
     resonance,
     hunger,
-    humanity
+    humanity,
+    discipline1,
+    discipline2,
+    discipline3,
+    superficialdamage,
+    aggravateddamage,
+    damagewillpower,
+    taintedhumanity,
+    discipline1value,
+    discipline2value,
+    discipline3value
   ) {
     return axios.post(url, {
       owner,
@@ -153,7 +163,7 @@ class CharacterService {
       larcenyspe,
       melee,
       meleespe,
-      stealt,
+      stealth,
       stealthspe,
       survival,
       survivalspe,
@@ -223,6 +233,17 @@ class CharacterService {
       resonance,
       hunger,
       humanity,
+    discipline1,
+    discipline2,
+    discipline3,
+    superficialdamage,
+    aggravateddamage,
+    damagewillpower,
+    taintedhumanity,
+    discipline1value,
+    discipline2value,
+    discipline3value
+
     });
   }
 
@@ -273,7 +294,7 @@ class CharacterService {
     larcenyspe,
     melee,
     meleespe,
-    stealt,
+    stealth,
     stealthspe,
     survival,
     survivalspe,
@@ -315,7 +336,17 @@ class CharacterService {
     technologyspe,
     resonance,
     hunger,
-    humanity
+    humanity,
+    discipline1,
+    discipline2,
+    discipline3,
+    superficialdamage,
+    aggravateddamage,
+    damagewillpower,
+    taintedhumanity,
+    discipline1value,
+    discipline2value,
+    discipline3value
   ) {
     return axios.patch(`${url}/${id}`, {
       name,
@@ -352,7 +383,7 @@ class CharacterService {
       larcenyspe,
       melee,
       meleespe,
-      stealt,
+      stealth,
       stealthspe,
       survival,
       survivalspe,
@@ -395,6 +426,16 @@ class CharacterService {
       resonance,
       hunger,
       humanity,
+    discipline1,
+    discipline2,
+    discipline3,
+    superficialdamage,
+    aggravateddamage,
+    damagewillpower,
+    taintedhumanity,
+    discipline1value,
+    discipline2value,
+    discipline3value
     });
   }
 }

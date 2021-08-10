@@ -1,270 +1,288 @@
 <template>
   <div class="container m-5">
- 
-      <div class="row">
-        <div class="col">
-          <div class="form-floating">
-            <input
-              type="text"
-              v-model="name"
-              class="form-control"
-              id="name"
-              placeholder="Character's name"
-            />
-            <label for="name">Character's name</label>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-floating">
-            <input
-              type="text"
-              v-model="concept"
-              class="form-control"
-              id="concept"
-              placeholder="Concept"
-            />
-            <label for="concept">Concept</label>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-floating">
-            <input
-              type="text"
-              v-model="predator"
-              class="form-control"
-              id="predator"
-              placeholder="Predator"
-            />
-            <label for="predator">Predator</label>
-          </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="text"
+            v-model="name"
+            class="form-control"
+            id="name"
+            placeholder="Character's name"
+          />
+          <label for="name">Character's name</label>
         </div>
       </div>
-      <!-- Ligne 2 -->
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="text"
+            v-model="concept"
+            class="form-control"
+            id="concept"
+            placeholder="Concept"
+          />
+          <label for="concept">Concept</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="text"
+            v-model="predator"
+            class="form-control"
+            id="predator"
+            placeholder="Predator"
+          />
+          <label for="predator">Predator</label>
+        </div>
+      </div>
+    </div>
+    <!-- Ligne 2 -->
+    <div class="row">
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="text"
+            v-model="chronicle"
+            class="form-control"
+            id="chronicle"
+            placeholder="Chronicle"
+          />
+          <label for="chronicle">Chronicle</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="text"
+            v-model="ambition"
+            class="form-control"
+            id="ambition"
+            placeholder="Ambition"
+          />
+          <label for="ambition">Ambition</label>
+        </div>
+      </div>
+      <div class="col">
+        <select
+          class="form-select form-select-lg"
+          aria-label="clan"
+          id="clan"
+          v-model="clan"
+        >
+          <option selected>Clan</option>
+          <option value="Lasombra">Lasombra</option>
+          <option value="Brujah">Brujah</option>
+          <option value="Tremere">Tremere</option>
+        </select>
+      </div>
+    </div>
+    <!-- Ligne 3 -->
+    <div class="row">
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="text"
+            v-model="sire"
+            class="form-control"
+            id="sire"
+            placeholder="Sire"
+          />
+          <label for="sire">Sire</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="text"
+            v-model="desire"
+            class="form-control"
+            id="desire"
+            placeholder="desire"
+          />
+          <label for="desire">Desire</label>
+        </div>
+      </div>
+      <div class="col">
+        <select
+          class="form-select form-select-lg"
+          aria-label="generation"
+          id="generation"
+          v-model="generation"
+        >
+          <option selected>Generation</option>
+          <option value="14">14</option>
+          <option value="13">13</option>
+          <option value="12">12</option>
+        </select>
+      </div>
+    </div>
+    <div class="mt-3">
+      <h3 class="text-danger">Attributes</h3>
       <div class="row">
         <div class="col">
-          <div class="form-floating">
-            <input
-              type="text"
-              v-model="chronicle"
-              class="form-control"
-              id="chronicle"
-              placeholder="Chronicle"
-            />
-            <label for="chronicle">Chronicle</label>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-floating">
-            <input
-              type="text"
-              v-model="ambition"
-              class="form-control"
-              id="ambition"
-              placeholder="Ambition"
-            />
-            <label for="ambition">Ambition</label>
-          </div>
-        </div>
-        <div class="col">
+          <p>Strength</p>
           <select
-            class="form-select form-select-lg"
-            aria-label="clan"
-            id="clan"
-            v-model="clan"
-          >
-            <option selected>Clan</option>
-            <option value="Lasombra">Lasombra</option>
-            <option value="Brujah">Brujah</option>
-            <option value="Tremere">Tremere</option>
-          </select>
-        </div>
-      </div>
-      <!-- Ligne 3 -->
-      <div class="row">
-        <div class="col">
-          <div class="form-floating">
-            <input
-              type="text"
-              v-model="sire"
-              class="form-control"
-              id="sire"
-              placeholder="Sire"
-            />
-            <label for="sire">Sire</label>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-floating">
-            <input
-              type="text"
-              v-model="desire"
-              class="form-control"
-              id="desire"
-              placeholder="desire"
-            />
-            <label for="desire">Desire</label>
-          </div>
-        </div>
-        <div class="col">
-          <select
-            class="form-select form-select-lg"
-            aria-label="generation"
-            id="generation"
-            v-model="generation"
-          >
-            <option selected>Generation</option>
-            <option value=14>14</option>
-            <option value=13>13</option>
-            <option value=12>12</option>
-          </select>
-        </div>
-      </div>
-      <div class="mt-3">
-          <h3 class="text-danger">Attributes</h3>
-          <div class="row">
-              <div class="col">
-                  <p>Strength</p><select
             class="form-select form-select-lg"
             aria-label="strength"
             id="strength"
             v-model="strength"
           >
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-          </select></div>
-              <div class="col">
-                  <p>Charisma</p><select
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col">
+          <p>Charisma</p>
+          <select
             class="form-select form-select-lg"
             aria-label="charisma"
             id="charisma"
             v-model="charisma"
           >
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-          </select></div>
-          
-              <div class="col">
-                  <p>Intelligence</p><select
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="col">
+          <p>Intelligence</p>
+          <select
             class="form-select form-select-lg"
             aria-label="intelligence"
             id="intelligence"
             v-model="intelligence"
           >
-            <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-          </select></div>
-          </div>
-          <!-- ligne2  -->
-           <div class="row">
-              <div class="col">
-                  <p>Dexterity</p><select
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+      <!-- ligne2  -->
+      <div class="row">
+        <div class="col">
+          <p>Dexterity</p>
+          <select
             class="form-select form-select-lg"
             aria-label="dexterity"
             id="dexterity"
             v-model="dexterity"
           >
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-          </select></div>
-              <div class="col">
-                  <p>Manipulation</p><select
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col">
+          <p>Manipulation</p>
+          <select
             class="form-select form-select-lg"
             aria-label="manipulation"
             id="manipulation"
             v-model="manipulation"
           >
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-          </select></div>
-              <div class="col">
-                  <p>Wits</p><select
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col">
+          <p>Wits</p>
+          <select
             class="form-select form-select-lg"
             aria-label="wits"
             id="wits"
             v-model="wits"
           >
-            <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-          </select></div>
-          </div>
-          <!-- ligne 3 -->
-           <div class="row">
-              <div class="col">
-                  <p>Stamina</p><select
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+      <!-- ligne 3 -->
+      <div class="row">
+        <div class="col">
+          <p>Stamina</p>
+          <select
             class="form-select form-select-lg"
             aria-label="stamina"
             id="stamina"
             v-model="stamina"
           >
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-          </select></div>
-              <div class="col">
-                  <p>Composure</p><select
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col">
+          <p>Composure</p>
+          <select
             class="form-select form-select-lg"
             aria-label="composure"
             id="composure"
             v-model="composure"
           >
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-          </select></div>
-              <div class="col">
-                  <p>Resolve</p><select
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col">
+          <p>Resolve</p>
+          <select
             class="form-select form-select-lg"
             aria-label="resolve"
             id="resolve"
             v-model="resolve"
           >
-            <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-          </select></div>
-          </div>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
       </div>
-       <div class="mt-3">
-           <!-- SKILLS/////////////////////////////////////////////////////////////////// -->
-          <h3 class="text-danger">Skills</h3>
-          <div class="row">
-              <div class="col">
-                  <p>Athletics</p><select
+    </div>
+    <div class="mt-3">
+      <!-- SKILLS/////////////////////////////////////////////////////////////////// -->
+      <h3 class="text-danger">Skills</h3>
+      <div class="row">
+        <div class="col">
+          <p>Athletics</p>
+          <select
             class="form-select form-select-lg"
             aria-label="athletics"
             id="athletics"
             v-model="athletics"
           >
-          <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -275,20 +293,22 @@
               placeholder="atleticspe"
             />
             <label for="atleticspe">Speciality if any</label>
-          </div></div>
-              <div class="col">
-                  <p>Animal Ken</p><select
+          </div>
+        </div>
+        <div class="col">
+          <p>Animal Ken</p>
+          <select
             class="form-select form-select-lg"
             aria-label="animalken"
             id="animalken"
             v-model="animalken"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -299,21 +319,23 @@
               placeholder="animalkenspe"
             />
             <label for="animalkenspe">Speciality if any</label>
-          </div></div>
-          
-           <div class="col">
-                  <p>Academics</p><select
+          </div>
+        </div>
+
+        <div class="col">
+          <p>Academics</p>
+          <select
             class="form-select form-select-lg"
             aria-label="academics"
             id="academics"
             v-model="academics"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -324,23 +346,25 @@
               placeholder="academicsspe"
             />
             <label for="academicsspe">Speciality if any</label>
-          </div></div>
           </div>
-          <!-- ligne2  ////////////////////////////////////////////////////////////////////////////-->
-           <div class="row">
-              <div class="col">
-                  <p>Brawl</p><select
+        </div>
+      </div>
+      <!-- ligne2  ////////////////////////////////////////////////////////////////////////////-->
+      <div class="row">
+        <div class="col">
+          <p>Brawl</p>
+          <select
             class="form-select form-select-lg"
             aria-label="brawl"
             id="brawl"
             v-model="brawl"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -351,20 +375,22 @@
               placeholder="brawlspe"
             />
             <label for="brawlspe">Speciality if any</label>
-          </div></div>
-              <div class="col">
-                  <p>Etiquette</p><select
+          </div>
+        </div>
+        <div class="col">
+          <p>Etiquette</p>
+          <select
             class="form-select form-select-lg"
             aria-label="etiquette"
             id="etiquette"
             v-model="etiquette"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -375,21 +401,23 @@
               placeholder="etiquettespe"
             />
             <label for="etiquettespe">Speciality if any</label>
-          </div></div>
-          
-           <div class="col">
-                  <p>Awareness</p><select
+          </div>
+        </div>
+
+        <div class="col">
+          <p>Awareness</p>
+          <select
             class="form-select form-select-lg"
             aria-label="awareness"
             id="awareness"
             v-model="awareness"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -400,23 +428,25 @@
               placeholder="awarenessspe"
             />
             <label for="awarenessspe">Speciality if any</label>
-          </div></div>
           </div>
-          <!-- ligne 3 ///////////////////////////////////////////////////////////////////////////////-->
-           <div class="row">
-              <div class="col">
-                  <p>Craft</p><select
+        </div>
+      </div>
+      <!-- ligne 3 ///////////////////////////////////////////////////////////////////////////////-->
+      <div class="row">
+        <div class="col">
+          <p>Craft</p>
+          <select
             class="form-select form-select-lg"
             aria-label="craft"
             id="craft"
             v-model="craft"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -427,20 +457,22 @@
               placeholder="craftspe"
             />
             <label for="craftspe">Speciality if any</label>
-          </div></div>
-              <div class="col">
-                  <p>Insight </p><select
+          </div>
+        </div>
+        <div class="col">
+          <p>Insight</p>
+          <select
             class="form-select form-select-lg"
             aria-label="insight"
             id="insight"
             v-model="insight"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -451,21 +483,23 @@
               placeholder="insightspe"
             />
             <label for="insightspe">Speciality if any</label>
-          </div></div>
-          
-           <div class="col">
-                  <p>Finance</p><select
+          </div>
+        </div>
+
+        <div class="col">
+          <p>Finance</p>
+          <select
             class="form-select form-select-lg"
             aria-label="finance"
             id="finance"
             v-model="finance"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -476,23 +510,25 @@
               placeholder="financespe"
             />
             <label for="financespe">Speciality if any</label>
-          </div></div>
           </div>
-          <!-- LIGNE 4///////////////////////////////////////////// -->
-          <div class="row">
-              <div class="col">
-                  <p>Drive</p><select
+        </div>
+      </div>
+      <!-- LIGNE 4///////////////////////////////////////////// -->
+      <div class="row">
+        <div class="col">
+          <p>Drive</p>
+          <select
             class="form-select form-select-lg"
             aria-label="drive"
             id="drive"
             v-model="drive"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -503,20 +539,22 @@
               placeholder="drivespe"
             />
             <label for="drivespe">Speciality if any</label>
-          </div></div>
-              <div class="col">
-                  <p>Intimidation </p><select
+          </div>
+        </div>
+        <div class="col">
+          <p>Intimidation</p>
+          <select
             class="form-select form-select-lg"
             aria-label="intimidation"
             id="intimidation"
             v-model="intimidation"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -527,21 +565,23 @@
               placeholder="intimidationspe"
             />
             <label for="intimidationspe">Speciality if any</label>
-          </div></div>
-          
-           <div class="col">
-                  <p>Investigation</p><select
+          </div>
+        </div>
+
+        <div class="col">
+          <p>Investigation</p>
+          <select
             class="form-select form-select-lg"
             aria-label="investigation"
             id="investigation"
             v-model="investigation"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -552,23 +592,25 @@
               placeholder="investigationspe"
             />
             <label for="investigationspe">Speciality if any</label>
-          </div></div>
           </div>
-          <!-- LIGNE 5////////////////////////////////////////////// -->
-          <div class="row">
-              <div class="col">
-                  <p>Firearms</p><select
+        </div>
+      </div>
+      <!-- LIGNE 5////////////////////////////////////////////// -->
+      <div class="row">
+        <div class="col">
+          <p>Firearms</p>
+          <select
             class="form-select form-select-lg"
             aria-label="firearms"
             id="firearms"
             v-model="firearms"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -579,20 +621,22 @@
               placeholder="firearmsspe"
             />
             <label for="firearmsspe">Speciality if any</label>
-          </div></div>
-              <div class="col">
-                  <p>Leadership </p><select
+          </div>
+        </div>
+        <div class="col">
+          <p>Leadership</p>
+          <select
             class="form-select form-select-lg"
             aria-label="leadership"
             id="leadership"
             v-model="leadership"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -603,21 +647,23 @@
               placeholder="leadershipspe"
             />
             <label for="leadershipspe">Speciality if any</label>
-          </div></div>
-          
-           <div class="col">
-                  <p>Medicine</p><select
+          </div>
+        </div>
+
+        <div class="col">
+          <p>Medicine</p>
+          <select
             class="form-select form-select-lg"
             aria-label="medicine"
             id="medicine"
             v-model="medicine"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -628,23 +674,25 @@
               placeholder="medicinespe"
             />
             <label for="medicinespe">Speciality if any</label>
-          </div></div>
           </div>
-          <!-- LIGNE 6//////////////////////////////////////////////////////////////// -->
-          <div class="row">
-              <div class="col">
-                  <p>larceny</p><select
+        </div>
+      </div>
+      <!-- LIGNE 6//////////////////////////////////////////////////////////////// -->
+      <div class="row">
+        <div class="col">
+          <p>larceny</p>
+          <select
             class="form-select form-select-lg"
             aria-label="larceny"
             id="larceny"
             v-model="larceny"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -655,20 +703,22 @@
               placeholder="larcenyspe"
             />
             <label for="larcenyspe">Speciality if any</label>
-          </div></div>
-              <div class="col">
-                  <p>Performance </p><select
+          </div>
+        </div>
+        <div class="col">
+          <p>Performance</p>
+          <select
             class="form-select form-select-lg"
             aria-label="performance"
             id="performance"
             v-model="performance"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -679,21 +729,23 @@
               placeholder="performancespe"
             />
             <label for="performancespe">Speciality if any</label>
-          </div></div>
-          
-           <div class="col">
-                  <p>Occult</p><select
+          </div>
+        </div>
+
+        <div class="col">
+          <p>Occult</p>
+          <select
             class="form-select form-select-lg"
             aria-label="occult"
             id="occult"
             v-model="occult"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -704,23 +756,25 @@
               placeholder="occultspe"
             />
             <label for="occultspe">Speciality if any</label>
-          </div></div>
           </div>
-          <!-- LIGNE 7/////////////////////////////////////////////////// -->
-          <div class="row">
-              <div class="col">
-                  <p>Melee</p><select
+        </div>
+      </div>
+      <!-- LIGNE 7/////////////////////////////////////////////////// -->
+      <div class="row">
+        <div class="col">
+          <p>Melee</p>
+          <select
             class="form-select form-select-lg"
             aria-label="melee"
             id="melee"
             v-model="melee"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -731,20 +785,22 @@
               placeholder="meleespe"
             />
             <label for="meleespe">Speciality if any</label>
-          </div></div>
-              <div class="col">
-                  <p>Persuasion </p><select
+          </div>
+        </div>
+        <div class="col">
+          <p>Persuasion</p>
+          <select
             class="form-select form-select-lg"
             aria-label="persuasion"
             id="persuasion"
             v-model="persuasion"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -755,21 +811,23 @@
               placeholder="persuasionspe"
             />
             <label for="persuasionspe">Speciality if any</label>
-          </div></div>
-          
-           <div class="col">
-                  <p>Politics</p><select
+          </div>
+        </div>
+
+        <div class="col">
+          <p>Politics</p>
+          <select
             class="form-select form-select-lg"
             aria-label="politics"
             id="politics"
             v-model="politics"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -780,23 +838,25 @@
               placeholder="politicsspe"
             />
             <label for="politicsspe">Speciality if any</label>
-          </div></div>
           </div>
-          <!-- LIGNE8///////////////////////////////////////////////////////////// -->
-          <div class="row">
-              <div class="col">
-                  <p>Stealth</p><select
+        </div>
+      </div>
+      <!-- LIGNE8///////////////////////////////////////////////////////////// -->
+      <div class="row">
+        <div class="col">
+          <p>Stealth</p>
+          <select
             class="form-select form-select-lg"
             aria-label="stealth"
             id="stealth"
             v-model="stealth"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -807,20 +867,22 @@
               placeholder="stealthspe"
             />
             <label for="stealthspe">Speciality if any</label>
-          </div></div>
-              <div class="col">
-                  <p>Streetwise </p><select
+          </div>
+        </div>
+        <div class="col">
+          <p>Streetwise</p>
+          <select
             class="form-select form-select-lg"
             aria-label="streetwise"
             id="streetwise"
             v-model="streetwise"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -831,21 +893,23 @@
               placeholder="streetwisespe"
             />
             <label for="streetwisespe">Speciality if any</label>
-          </div></div>
-          
-           <div class="col">
-                  <p>Science</p><select
+          </div>
+        </div>
+
+        <div class="col">
+          <p>Science</p>
+          <select
             class="form-select form-select-lg"
             aria-label="science"
             id="science"
             v-model="science"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -856,23 +920,25 @@
               placeholder="sciencespe"
             />
             <label for="sciencespe">Speciality if any</label>
-          </div></div>
           </div>
-          <!-- LIGNE 9 -->
-          <div class="row">
-              <div class="col">
-                  <p>Survival</p><select
+        </div>
+      </div>
+      <!-- LIGNE 9 -->
+      <div class="row">
+        <div class="col">
+          <p>Survival</p>
+          <select
             class="form-select form-select-lg"
             aria-label="survival"
             id="survival"
             v-model="survival"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -883,20 +949,22 @@
               placeholder="survivalspe"
             />
             <label for="survivalspe">Speciality if any</label>
-          </div></div>
-              <div class="col">
-                  <p>Subterfuge </p><select
+          </div>
+        </div>
+        <div class="col">
+          <p>Subterfuge</p>
+          <select
             class="form-select form-select-lg"
             aria-label="subterfuge"
             id="subterfuge"
             v-model="subterfuge"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -907,21 +975,23 @@
               placeholder="subterfugespe"
             />
             <label for="subterfugespe">Speciality if any</label>
-          </div></div>
-          
-           <div class="col">
-                  <p>Technology</p><select
+          </div>
+        </div>
+
+        <div class="col">
+          <p>Technology</p>
+          <select
             class="form-select form-select-lg"
             aria-label="technology"
             id="technology"
             v-model="technology"
           >
-           <option value=0>0</option>
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <div class="form-floating">
             <input
@@ -932,56 +1002,142 @@
               placeholder="technologyspe"
             />
             <label for="technologyspe">Speciality if any</label>
-          </div></div>
           </div>
-          <div class="row">
-              <!-- END///////////////////////////////////////////////////////////////////////// -->
-              <div class="col">
-                  <p>Health</p><select
+        </div>
+      </div>
+      <div>
+        <h3 class="text-danger">Disciplines</h3>
+      </div>
+      <!-- DISCIPLINES///////////////////////////////////////////////////////////////////////// -->
+      <div class="row">
+        <div class="col">
+          <p>First Discipline</p>
+          <select
+            class="form-select form-select-lg"
+            aria-label="discipline1value"
+            id="discipline1value"
+            v-model="discipline1value"
+          >
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <div class="form-floating">
+            <input
+              type="text"
+              v-model="discipline1"
+              class="form-control"
+              id="discipline1"
+              placeholder="discipline1"
+            />
+            <label for="discipline1">Discipline's Name</label>
+          </div>
+        </div>
+        <div class="col">
+          <p>Second Discipline</p>
+          <select
+            class="form-select form-select-lg"
+            aria-label="discipline2value"
+            id="discipline2value"
+            v-model="discipline2value"
+          >
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <div class="form-floating">
+            <input
+              type="text"
+              v-model="discipline2"
+              class="form-control"
+              id="discipline2"
+              placeholder="discipline2"
+            />
+            <label for="discipline2">Discipline's Name</label>
+          </div>
+        </div>
+
+        <div class="col">
+          <p>Third Discipline</p>
+          <select
+            class="form-select form-select-lg"
+            aria-label="discipline3value"
+            id="discipline3value"
+            v-model="discipline3value"
+          >
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <div class="form-floating">
+            <input
+              type="text"
+              v-model="discipline3"
+              class="form-control"
+              id="discipline3"
+              placeholder="discipline3"
+            />
+            <label for="discipline3">Discipline's Name</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- END///////////////////////////////////////////////////////////////////////// -->
+        <div class="col">
+          <p>Health</p>
+          <select
             class="form-select form-select-lg"
             aria-label="health"
             id="health"
             v-model="health"
           >
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-            <option value=6>6</option>
-            <option value=7>7</option>
-            <option value=8>8</option>
-            <option value=9>9</option>
-            <option value=10>10</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
           </select>
-          <div class="form-floating">
-          </div>
-       </div>
-       <div class="col">
-                  <p>Willpower</p><select
+          <div class="form-floating"></div>
+        </div>
+        <div class="col">
+          <p>Willpower</p>
+          <select
             class="form-select form-select-lg"
             aria-label="willpower"
             id="willpower"
             v-model="willpower"
           >
-             <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-            <option value=6>6</option>
-            <option value=7>7</option>
-            <option value=8>8</option>
-            <option value=9>9</option>
-            <option value=10>10</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
           </select>
-          <div class="form-floating">
-          </div>
-       </div>
-          </div>
-       </div>
-       <button v-on:click="createCharacter">Create! </button>
+          <div class="form-floating"></div>
+        </div>
+      </div>
+    </div>
   
+    <button v-on:click="createCharacter">Create!</button>
   </div>
 </template>
 
@@ -1072,31 +1228,40 @@ export default {
       resonance: "",
       hunger: "",
       humanity: "",
-      disciplines: "",
+      discipline1: "",
+      discipline2: "",
+      discipline3: "",
+      superficialdamage:"",
+    aggravateddamage:"",
+    damagewillpower:"",
+    taintedhumanity:"",
+      discipline1value: "",
+      discipline2value: "",
+      discipline3value: "",
     };
   },
 
   methods: {
     async createCharacter() {
-        if (localStorage.getItem("token") === null) {
-      this.$router.push("/login");
-    } else {
-      // fetch("http://localhost:3000/user",{
-      //   method:'GET',
-      //   header:{
-      //     'Authorization':localStorage.getItem('token')
-      //   }
-      // }).then(res=>res.json())
-      console.log("pas de token");
-    }
-   const token = localStorage.getItem("token");
-    const decoded = VueJwtDecode.decode(token);
+      if (localStorage.getItem("token") === null) {
+        this.$router.push("/login");
+      } else {
+        // fetch("http://localhost:3000/user",{
+        //   method:'GET',
+        //   header:{
+        //     'Authorization':localStorage.getItem('token')
+        //   }
+        // }).then(res=>res.json())
+        console.log("pas de token");
+      }
+      const token = localStorage.getItem("token");
+      const decoded = VueJwtDecode.decode(token);
 
-    const user = await UserService.getUser(decoded.user._id);
-    this.user = user;
+      const user = await UserService.getUser(decoded.user._id);
+      this.user = user;
 
-    await CharacterService.insertCharacter(
-       (this.owner = user._id),
+      await CharacterService.insertCharacter(
+        (this.owner = user._id),
         this.name,
         this.sire,
         this.concept,
@@ -1174,6 +1339,16 @@ export default {
         this.resonance,
         this.hunger,
         (this.humanity = 7),
+        this.discipline1,
+        this.discipline2,
+        this.discipline3,
+        this.superficialdamage=0,
+    this.aggravateddamage=0,
+    this.damagewillpower=0,
+    this.taintedhumanity=0,
+        this.discipline1value,
+        this.discipline2value,
+        this.discipline3value
       );
       this.$router.push("/");
     },

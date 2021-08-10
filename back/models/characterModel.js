@@ -134,7 +134,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     athleticsspe:{
         type: String
@@ -143,7 +144,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     brawlspe:{
         type: String
@@ -152,7 +154,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     craftspe:{
         type: String
@@ -161,7 +164,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     drivespe:{
         type: String
@@ -170,7 +174,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     firearmsspe:{
         type: String
@@ -179,7 +184,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     larcenyspe:{
         type: String
@@ -188,7 +194,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     meleespe:{
         type: String
@@ -197,7 +204,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     stealthspe:{
         type: String
@@ -206,7 +214,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     survivalspe:{
         type: String
@@ -215,7 +224,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     animalkenspe:{
         type: String
@@ -224,7 +234,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     etiquettespe:{
         type: String
@@ -233,7 +244,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     insightspe:{
         type: String
@@ -242,7 +254,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     intimidationspe:{
         type: String
@@ -251,7 +264,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     leadershipspe:{
         type: String
@@ -260,7 +274,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     performancespe:{
         type: String
@@ -269,7 +284,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     persuasionspe:{
         type: String
@@ -278,7 +294,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     streetwisespe:{
         type: String
@@ -287,7 +304,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     subterfugespe:{
         type: String
@@ -296,7 +314,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     academicsspe:{
         type: String
@@ -305,7 +324,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     awarenessspe:{
         type: String
@@ -314,7 +334,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     financespe:{
         type: String
@@ -323,7 +344,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     investigationspe:{
         type: String
@@ -332,7 +354,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     medicinespe:{
         type: String
@@ -341,7 +364,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     occultspe:{
         type: String
@@ -350,7 +374,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     politicsspe:{
         type: String
@@ -359,7 +384,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     sciencespe:{
         type: String
@@ -368,7 +394,8 @@ const CharacterSchema = new mongoose.Schema({
         type: Number,
         //required: true,
         min: 0,
-        max:5
+        max:5,
+        default:0
     },
     technologyspe:{
         type: String
@@ -470,9 +497,58 @@ const CharacterSchema = new mongoose.Schema({
         default:7
     },
 
-    disciplines:{
-        type: [String ]
-    }
+    discipline1:{
+        type: String
+    },
+    
+    discipline2:{
+        type: String
+    },
+    discipline3:{
+        type: String
+    },
+    superficialdamage:{
+        type:Number,
+        min:0,
+        max:10,
+        default: 0
+    },
+    aggravateddamage:{
+        type:Number,
+        min:0,
+        max:10,
+        default: 0
+    },
+    damagewillpower:{
+        type:Number,
+        min:0,
+        max:10,
+        default: 0
+    },
+    taintedhumanity:{
+        type:Number,
+        min:0,
+        max:10,
+        default: 0
+    },
+    discipline1value:{
+        type:Number,
+        min:0,
+        max:5,
+       
+    },
+    discipline2value:{
+        type:Number,
+        min:0,
+        max:5,
+      
+    },
+    discipline3value:{
+        type:Number,
+        min:0,
+        max:5,
+      
+    },
 
 
 })
