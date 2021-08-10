@@ -355,7 +355,7 @@ const CharacterSchema = new mongoose.Schema({
     politicsspe:{
         type: String
     },
-    scicence:{
+    science:{
         type: Number,
         //required: true,
         min: 0,

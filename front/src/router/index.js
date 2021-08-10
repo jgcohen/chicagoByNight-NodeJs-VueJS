@@ -7,6 +7,7 @@ import Login from '../views/Login.vue'
 import Npc from '../views/Npc.vue'
 import CharacterCreation from '../views/CharacterCreation.vue'
 import SingleCharacter from '../views/SingleCharacter.vue'
+import CharacterSheet from '../views/CharacterSheet.vue'
 
 
 const routes = [
@@ -56,7 +57,13 @@ const routes = [
   },
   {
     path:`/character/:id`,
-    name:'Character',
+    name:'CharacterSheet',
+    component: CharacterSheet
+
+  },
+  {
+    path:`/updatecharacter/:id`,
+    name:'UpdateCharacter',
     component: SingleCharacter
 
   },
