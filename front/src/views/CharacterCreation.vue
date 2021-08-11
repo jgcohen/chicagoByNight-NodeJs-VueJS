@@ -1136,7 +1136,7 @@
         </div>
       </div>
     </div>
-  
+
     <button v-on:click="createCharacter">Create!</button>
   </div>
 </template>
@@ -1231,10 +1231,10 @@ export default {
       discipline1: "",
       discipline2: "",
       discipline3: "",
-      superficialdamage:"",
-    aggravateddamage:"",
-    damagewillpower:"",
-    taintedhumanity:"",
+      superficialdamage: "",
+      aggravateddamage: "",
+      damagewillpower: "",
+      taintedhumanity: "",
       discipline1value: "",
       discipline2value: "",
       discipline3value: "",
@@ -1337,15 +1337,15 @@ export default {
         this.technology,
         this.technologyspe,
         this.resonance,
-        this.hunger,
+        (this.hunger = 0),
         (this.humanity = 7),
         this.discipline1,
         this.discipline2,
         this.discipline3,
-        this.superficialdamage=0,
-    this.aggravateddamage=0,
-    this.damagewillpower=0,
-    this.taintedhumanity=0,
+        (this.superficialdamage = 0),
+        (this.aggravateddamage = 0),
+        (this.damagewillpower = 0),
+        (this.taintedhumanity = 0),
         this.discipline1value,
         this.discipline2value,
         this.discipline3value

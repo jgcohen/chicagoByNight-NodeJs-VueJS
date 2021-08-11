@@ -1,47 +1,149 @@
 <template>
-<div class="container">
-  <div class="row">
-    <div class="col border border-dark">
-      <p class="text-start">Name: {{character.name}}</p>
+  <div class="container">
+    <div class="row">
+      <div class="col border border-dark">
+        <p class="text-start">Name: {{ character.name }}</p>
+      </div>
+      <div class="col border border-dark">
+        <p class="text-start">Concept: {{ character.concept }}</p>
+      </div>
+      <div class="col border border-dark">
+        <p class="text-start">Predator: {{ character.predator }}</p>
+      </div>
     </div>
-     <div class="col border border-dark">
-      <p class="text-start">Concept: {{character.concept}}</p>
+    <div class="row">
+      <div class="col border border-dark">
+        <p class="text-start">Chronicle: {{ character.chronicle }}</p>
+      </div>
+      <div class="col border border-dark">
+        <p class="text-start">Ambition: {{ character.ambition }}</p>
+      </div>
+      <div class="col border border-dark">
+        <p class="text-start">Clan: {{ character.clan }}</p>
+      </div>
     </div>
-     <div class="col border border-dark">
-      <p class="text-start">Predator: {{character.predator}}</p>
+    <div class="row">
+      <div class="col border border-dark">
+        <p class="text-start">Sire: {{ character.sire }}</p>
+      </div>
+      <div class="col border border-dark">
+        <p class="text-start">Desire: {{ character.desire }}</p>
+      </div>
+      <div class="col border border-dark">
+        <p class="text-start">Generation: {{ character.generation }}</p>
+      </div>
+    </div>
+    <div class="text-center text-danger mt-5 border-bottom border-danger">
+      <h3>Attributes</h3>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h5>Physical</h5>
+        <p class="text-start">Strength: {{ character.strength }}</p>
+        <p class="text-start">Dexterity: {{ character.dexterity }}</p>
+        <p class="text-start">Stamina: {{ character.stamina }}</p>
+      </div>
+      <div class="col">
+        <h5>Social</h5>
+        <p class="text-start">Charisma: {{ character.charisma }}</p>
+        <p class="text-start">Manipulation: {{ character.manipulation }}</p>
+        <p class="text-start">Composure: {{ character.composure }}</p>
+      </div>
+      <div class="col">
+        <h5>Mental</h5>
+        <p class="text-start">Intelligence: {{ character.intelligence }}</p>
+        <p class="text-start">Wits: {{ character.wits }}</p>
+        <p class="text-start">Resolve: {{ character.resolve }}</p>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col">
+        <p>Health Max: {{ character.health }}</p>
+        <p>Superficial damages: {{ character.superficialdamage }}</p>
+        <button v-on:click="addsuperficialdamage">+</button>
+        <button v-on:click="lowersuperficialdamage">-</button>
+        <p>Aggravated damages: {{ character.aggravateddamage }}</p>
+        <button v-on:click="addaggravateddamage">+</button>
+        <button v-on:click="loweraggravateddamage">-</button>
+      </div>
+      <div class="col">
+        <p>Willpower Max: {{ character.willpower }}</p>
+        <p>Damaged Willpower: {{ character.damagewillpower }}</p>
+        <button v-on:click="adddamagedwillpower">+</button>
+        <button v-on:click="lowerdamagedwillpower">-</button>
+      </div>
+    </div>
+    <div class="row border-bottom border-danger">
+      <h3 class="text-danger border-bottom border-danger">Skills</h3>
+      <div class="col">
+      <p>Athletics: {{character.athletics}}</p>
+      <p v-if="athleticsspe">{{character.athleticsspe}}</p>
+      <p>Brawl: {{character.brawl}}</p>
+      <p v-if="brawlspe">( {{character.brawlspe}} )</p>
+     <p>Craft: {{character.craft}}</p>
+      <p v-if="craftspe">( {{character.craftspe}} )</p>
+      <p>Drive: {{character.drive}}</p>
+      <p v-if="drivespe">( {{character.drivespe}} )</p>
+      <p>Firearms: {{character.firearms}}</p>
+      <p v-if="firearmsspe">( {{character.firearmsspe}} )</p>
+      <p>Larceny: {{character.larceny}}</p>
+      <p v-if="larcenyspe">( {{character.larcenyspe}} )</p>
+      <p>Melee: {{character.melee}}</p>
+      <p v-if="meleespe">( {{character.meleespe}} )</p>
+      <p>Stealth: {{character.stealth}}</p>
+      <p v-if="stealthspe">( {{character.stealthspe}} )</p>
+      <p>Survival: {{character.survival}}</p>
+      <p v-if="survivalspe">( {{character.survivalspe}} )</p>
+      </div>
+      <div class="col">
+        <p>Animal Ken: {{character.animalken}}</p>
+      <p v-if="animalkenspe">{{character.animalkenspe}}</p>
+      <p>Etiquette: {{character.etiquette}}</p>
+      <p v-if="etiquettespe">( {{character.etiquettespe}} )</p>
+     <p>Insight: {{character.insight}}</p>
+      <p v-if="insightspe">( {{character.insightspe}} )</p>
+      <p>Intimidation: {{character.intimidation}}</p>
+      <p v-if="intimidationspe">( {{character.intimidationspe}} )</p>
+      <p>Leadership: {{character.leadership}}</p>
+      <p v-if="leadershipspe">( {{character.leadershipspe}} )</p>
+      <p>Performance: {{character.performance}}</p>
+      <p v-if="performancespe">( {{character.performancespe}} )</p>
+      <p>Persuasion: {{character.persuasion}}</p>
+      <p v-if="persuasionspe">( {{character.persuasionspe}} )</p>
+      <p>Streetwise: {{character.streetwise}}</p>
+      <p v-if="streetwisespe">( {{character.streetwisespe}} )</p>
+      <p>Subterfuge: {{character.subterfuge}}</p>
+      <p v-if="subterfugespe">( {{character.subterfugespe}} )</p>
+      </div>
+      <div class="col">
+        <p>Academics: {{character.academics}}</p>
+      <p v-if="academicsspe">{{character.academicsspe}}</p>
+      <p>Awareness: {{character.awareness}}</p>
+      <p v-if="awarenessspe">( {{character.awarenessspe}} )</p>
+     <p>Finance: {{character.finance}}</p>
+      <p v-if="financespe">( {{character.financespe}} )</p>
+      <p>Investigation: {{character.investigation}}</p>
+      <p v-if="investigationspe">( {{character.investigationspe}} )</p>
+      <p>Medicine: {{character.medicine}}</p>
+      <p v-if="medicinespe">( {{character.medicinespe}} )</p>
+      <p>Occult: {{character.occult}}</p>
+      <p v-if="occultspe">( {{character.occultspe}} )</p>
+      <p>Politics: {{character.politics}}</p>
+      <p v-if="politicsspe">( {{character.politicsspe}} )</p>
+      <p>Science: {{character.science}}</p>
+      <p v-if="sciencespe">( {{character.sciencespe}} )</p>
+      <p>Technology: {{character.technology}}</p>
+      <p v-if="technologyspe">( {{character.technologyspe}} )</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      Hunger: {{character.hunger}}
+        <button v-on:click="addhunger">+</button>
+        <button v-on:click="lowerhunger">-</button>
+      </div>
     </div>
   </div>
-   <div class="row">
-    <div class="col border border-dark">
-      <p class="text-start">Chronicle: {{character.chronicle}}</p>
-    </div>
-     <div class="col border border-dark">
-      <p class="text-start">Ambition: {{character.ambition}}</p>
-    </div>
-     <div class="col border border-dark">
-      <p class="text-start">Clan: {{character.clan}}</p>
-    </div>
-  </div>
-   <div class="row">
-    <div class="col border border-dark">
-      <p class="text-start">Sire: {{character.sire}}</p>
-    </div>
-     <div class="col border border-dark">
-      <p class="text-start">Desire: {{character.desire}}</p>
-    </div>
-     <div class="col border border-dark">
-      <p class="text-start">Generation: {{character.generation}}</p>
-    </div>
-  </div>
-  <div class="text-center text-danger mt-5 border-bottom border-danger">
-    <h3>Attributes</h3>
-  </div>
-  <div class="row">
-    <div class="col">
-      <p>Strength: {{character.strength}}</p>
-    </div>
-  </div>
-</div>
 </template>
 
 
@@ -226,109 +328,771 @@ export default {
       this.hunger = this.character.hunger;
       this.humanity = this.character.humanity;
       this.discipline1 = this.character.discipline1;
-      this.discipline2  = this.character.discipline2;
-      this.discipline3  = this.character.discipline3;
-      this.superficialdamage  = this.character.superficialdamage;
-      this.aggravateddamage  = this.character.aggravateddamage;
-      this.damagewillpower  = this.character.damagewillpower;
-      this.taintedhumanity  = this.character.taintedhumanity;
-      this.discipline1value  = this.character.discipline1value;
-      this.discipline2value  = this.character.discipline2value;
-      this.discipline3value  = this.character.discipline3value;
+      this.discipline2 = this.character.discipline2;
+      this.discipline3 = this.character.discipline3;
+      this.superficialdamage = this.character.superficialdamage;
+      this.aggravateddamage = this.character.aggravateddamage;
+      this.damagewillpower = this.character.damagewillpower;
+      this.taintedhumanity = this.character.taintedhumanity;
+      this.discipline1value = this.character.discipline1value;
+      this.discipline2value = this.character.discipline2value;
+      this.discipline3value = this.character.discipline3value;
     } catch (err) {
       this.error = err.message;
     }
   },
   methods: {
-    async updateCharacter() {
-      console.log(this.$route.params.id);
-      if (confirm("Do you really want to update?")) {
-        await CharacterService.updateCharacter(
-          this.$route.params.id,
-          this.name,
-          this.sire,
-          this.concept,
-          this.ambition,
-          this.chronicle,
-          this.desire,
-          this.predator,
-          this.clan,
-          this.generation,
-          this.strength,
-          this.dexterity,
-          this.stamina,
-          this.charisma,
-          this.manipulation,
-          this.composure,
-          this.intelligence,
-          this.wits,
-          this.resolve,
-          this.health,
-          this.willpower,
-          this.athletics,
-          this.athleticsspe,
-          this.brawl,
-          this.brawlspe,
-          this.craft,
-          this.craftspe,
-          this.drive,
-          this.drivespe,
-          this.firearms,
-          this.firearmsspe,
-          this.larceny,
-          this.larcenyspe,
-          this.melee,
-          this.meleespe,
-          this.stealth,
-          this.stealthspe,
-          this.survival,
-          this.survivalspe,
-          this.animalken,
-          this.animalkenspe,
-          this.etiquette,
-          this.etiquettespe,
-          this.insight,
-          this.insightspe,
-          this.intimidation,
-          this.intimidationspe,
-          this.leadership,
-          this.leadershipspe,
-          this.performance,
-          this.performancespe,
-          this.persuasion,
-          this.persuasionspe,
-          this.streetwise,
-          this.streetwisespe,
-          this.subterfuge,
-          this.subterfugespe,
-          this.academics,
-          this.academicsspe,
-          this.awareness,
-          this.awarenessspe,
-          this.finance,
-          this.financespe,
-          this.investigation,
-          this.investigationspe,
-          this.medicine,
-          this.medicinespe,
-          this.occult,
-          this.occultspe,
-          this.politics,
-          this.politicsspe,
-          this.science,
-          this.sciencespe,
-          this.technology,
-          this.technologyspe,
-          this.resonance,
-          this.hunger
-        );
-        this.characters = await CharacterService.getCharacters();
-      }
+    async addsuperficialdamage() {
+      this.superficialdamage = this.superficialdamage + 1;
+      console.log(this.superficialdamage);
+      await CharacterService.updateCharacter(
+        this.$route.params.id,
+        this.name,
+        this.sire,
+        this.concept,
+        this.ambition,
+        this.chronicle,
+        this.desire,
+        this.predator,
+        this.clan,
+        this.generation,
+        this.strength,
+        this.dexterity,
+        this.stamina,
+        this.charisma,
+        this.manipulation,
+        this.composure,
+        this.intelligence,
+        this.wits,
+        this.resolve,
+        this.health,
+        this.willpower,
+        this.athletics,
+        this.athleticsspe,
+        this.brawl,
+        this.brawlspe,
+        this.craft,
+        this.craftspe,
+        this.drive,
+        this.drivespe,
+        this.firearms,
+        this.firearmsspe,
+        this.larceny,
+        this.larcenyspe,
+        this.melee,
+        this.meleespe,
+        this.stealth,
+        this.stealthspe,
+        this.survival,
+        this.survivalspe,
+        this.animalken,
+        this.animalkenspe,
+        this.etiquette,
+        this.etiquettespe,
+        this.insight,
+        this.insightspe,
+        this.intimidation,
+        this.intimidationspe,
+        this.leadership,
+        this.leadershipspe,
+        this.performance,
+        this.performancespe,
+        this.persuasion,
+        this.persuasionspe,
+        this.streetwise,
+        this.streetwisespe,
+        this.subterfuge,
+        this.subterfugespe,
+        this.academics,
+        this.academicsspe,
+        this.awareness,
+        this.awarenessspe,
+        this.finance,
+        this.financespe,
+        this.investigation,
+        this.investigationspe,
+        this.medicine,
+        this.medicinespe,
+        this.occult,
+        this.occultspe,
+        this.politics,
+        this.politicsspe,
+        this.science,
+        this.sciencespe,
+        this.technology,
+        this.technologyspe,
+        this.resonance,
+        this.hunger,
+        this.humanity,
+        this.discipline1,
+        this.discipline2,
+        this.discipline3,
+        this.superficialdamage,
+        this.aggravateddamage,
+        this.damagewillpower,
+        this.taintedhumanity,
+        this.discipline1value,
+        this.discipline2value,
+        this.discipline3value
+      );
+    },
+    async lowersuperficialdamage() {
+      this.superficialdamage = this.superficialdamage - 1;
+      console.log(this.superficialdamage);
+      await CharacterService.updateCharacter(
+        this.$route.params.id,
+        this.name,
+        this.sire,
+        this.concept,
+        this.ambition,
+        this.chronicle,
+        this.desire,
+        this.predator,
+        this.clan,
+        this.generation,
+        this.strength,
+        this.dexterity,
+        this.stamina,
+        this.charisma,
+        this.manipulation,
+        this.composure,
+        this.intelligence,
+        this.wits,
+        this.resolve,
+        this.health,
+        this.willpower,
+        this.athletics,
+        this.athleticsspe,
+        this.brawl,
+        this.brawlspe,
+        this.craft,
+        this.craftspe,
+        this.drive,
+        this.drivespe,
+        this.firearms,
+        this.firearmsspe,
+        this.larceny,
+        this.larcenyspe,
+        this.melee,
+        this.meleespe,
+        this.stealth,
+        this.stealthspe,
+        this.survival,
+        this.survivalspe,
+        this.animalken,
+        this.animalkenspe,
+        this.etiquette,
+        this.etiquettespe,
+        this.insight,
+        this.insightspe,
+        this.intimidation,
+        this.intimidationspe,
+        this.leadership,
+        this.leadershipspe,
+        this.performance,
+        this.performancespe,
+        this.persuasion,
+        this.persuasionspe,
+        this.streetwise,
+        this.streetwisespe,
+        this.subterfuge,
+        this.subterfugespe,
+        this.academics,
+        this.academicsspe,
+        this.awareness,
+        this.awarenessspe,
+        this.finance,
+        this.financespe,
+        this.investigation,
+        this.investigationspe,
+        this.medicine,
+        this.medicinespe,
+        this.occult,
+        this.occultspe,
+        this.politics,
+        this.politicsspe,
+        this.science,
+        this.sciencespe,
+        this.technology,
+        this.technologyspe,
+        this.resonance,
+        this.hunger,
+        this.humanity,
+        this.discipline1,
+        this.discipline2,
+        this.discipline3,
+        this.superficialdamage,
+        this.aggravateddamage,
+        this.damagewillpower,
+        this.taintedhumanity,
+        this.discipline1value,
+        this.discipline2value,
+        this.discipline3value
+      );
+    },
+    async addaggravateddamage() {
+      this.aggravateddamage = this.aggravateddamage + 1;
+      await CharacterService.updateCharacter(
+        this.$route.params.id,
+        this.name,
+        this.sire,
+        this.concept,
+        this.ambition,
+        this.chronicle,
+        this.desire,
+        this.predator,
+        this.clan,
+        this.generation,
+        this.strength,
+        this.dexterity,
+        this.stamina,
+        this.charisma,
+        this.manipulation,
+        this.composure,
+        this.intelligence,
+        this.wits,
+        this.resolve,
+        this.health,
+        this.willpower,
+        this.athletics,
+        this.athleticsspe,
+        this.brawl,
+        this.brawlspe,
+        this.craft,
+        this.craftspe,
+        this.drive,
+        this.drivespe,
+        this.firearms,
+        this.firearmsspe,
+        this.larceny,
+        this.larcenyspe,
+        this.melee,
+        this.meleespe,
+        this.stealth,
+        this.stealthspe,
+        this.survival,
+        this.survivalspe,
+        this.animalken,
+        this.animalkenspe,
+        this.etiquette,
+        this.etiquettespe,
+        this.insight,
+        this.insightspe,
+        this.intimidation,
+        this.intimidationspe,
+        this.leadership,
+        this.leadershipspe,
+        this.performance,
+        this.performancespe,
+        this.persuasion,
+        this.persuasionspe,
+        this.streetwise,
+        this.streetwisespe,
+        this.subterfuge,
+        this.subterfugespe,
+        this.academics,
+        this.academicsspe,
+        this.awareness,
+        this.awarenessspe,
+        this.finance,
+        this.financespe,
+        this.investigation,
+        this.investigationspe,
+        this.medicine,
+        this.medicinespe,
+        this.occult,
+        this.occultspe,
+        this.politics,
+        this.politicsspe,
+        this.science,
+        this.sciencespe,
+        this.technology,
+        this.technologyspe,
+        this.resonance,
+        this.hunger,
+        this.humanity,
+        this.discipline1,
+        this.discipline2,
+        this.discipline3,
+        this.superficialdamage,
+        this.aggravateddamage,
+        this.damagewillpower,
+        this.taintedhumanity,
+        this.discipline1value,
+        this.discipline2value,
+        this.discipline3value
+      );
+    },
+    async loweraggravateddamage() {
+      this.aggravateddamage = this.aggravateddamage - 1;
+      await CharacterService.updateCharacter(
+        this.$route.params.id,
+        this.name,
+        this.sire,
+        this.concept,
+        this.ambition,
+        this.chronicle,
+        this.desire,
+        this.predator,
+        this.clan,
+        this.generation,
+        this.strength,
+        this.dexterity,
+        this.stamina,
+        this.charisma,
+        this.manipulation,
+        this.composure,
+        this.intelligence,
+        this.wits,
+        this.resolve,
+        this.health,
+        this.willpower,
+        this.athletics,
+        this.athleticsspe,
+        this.brawl,
+        this.brawlspe,
+        this.craft,
+        this.craftspe,
+        this.drive,
+        this.drivespe,
+        this.firearms,
+        this.firearmsspe,
+        this.larceny,
+        this.larcenyspe,
+        this.melee,
+        this.meleespe,
+        this.stealth,
+        this.stealthspe,
+        this.survival,
+        this.survivalspe,
+        this.animalken,
+        this.animalkenspe,
+        this.etiquette,
+        this.etiquettespe,
+        this.insight,
+        this.insightspe,
+        this.intimidation,
+        this.intimidationspe,
+        this.leadership,
+        this.leadershipspe,
+        this.performance,
+        this.performancespe,
+        this.persuasion,
+        this.persuasionspe,
+        this.streetwise,
+        this.streetwisespe,
+        this.subterfuge,
+        this.subterfugespe,
+        this.academics,
+        this.academicsspe,
+        this.awareness,
+        this.awarenessspe,
+        this.finance,
+        this.financespe,
+        this.investigation,
+        this.investigationspe,
+        this.medicine,
+        this.medicinespe,
+        this.occult,
+        this.occultspe,
+        this.politics,
+        this.politicsspe,
+        this.science,
+        this.sciencespe,
+        this.technology,
+        this.technologyspe,
+        this.resonance,
+        this.hunger,
+        this.humanity,
+        this.discipline1,
+        this.discipline2,
+        this.discipline3,
+        this.superficialdamage,
+        this.aggravateddamage,
+        this.damagewillpower,
+        this.taintedhumanity,
+        this.discipline1value,
+        this.discipline2value,
+        this.discipline3value
+      );
+    },
+    ////////WILLPOWER////////////////////////////////////////////////////////////////
+async adddamagedwillpower() {
+      this.damagewillpower = this.damagewillpower + 1;
+      await CharacterService.updateCharacter(
+        this.$route.params.id,
+        this.name,
+        this.sire,
+        this.concept,
+        this.ambition,
+        this.chronicle,
+        this.desire,
+        this.predator,
+        this.clan,
+        this.generation,
+        this.strength,
+        this.dexterity,
+        this.stamina,
+        this.charisma,
+        this.manipulation,
+        this.composure,
+        this.intelligence,
+        this.wits,
+        this.resolve,
+        this.health,
+        this.willpower,
+        this.athletics,
+        this.athleticsspe,
+        this.brawl,
+        this.brawlspe,
+        this.craft,
+        this.craftspe,
+        this.drive,
+        this.drivespe,
+        this.firearms,
+        this.firearmsspe,
+        this.larceny,
+        this.larcenyspe,
+        this.melee,
+        this.meleespe,
+        this.stealth,
+        this.stealthspe,
+        this.survival,
+        this.survivalspe,
+        this.animalken,
+        this.animalkenspe,
+        this.etiquette,
+        this.etiquettespe,
+        this.insight,
+        this.insightspe,
+        this.intimidation,
+        this.intimidationspe,
+        this.leadership,
+        this.leadershipspe,
+        this.performance,
+        this.performancespe,
+        this.persuasion,
+        this.persuasionspe,
+        this.streetwise,
+        this.streetwisespe,
+        this.subterfuge,
+        this.subterfugespe,
+        this.academics,
+        this.academicsspe,
+        this.awareness,
+        this.awarenessspe,
+        this.finance,
+        this.financespe,
+        this.investigation,
+        this.investigationspe,
+        this.medicine,
+        this.medicinespe,
+        this.occult,
+        this.occultspe,
+        this.politics,
+        this.politicsspe,
+        this.science,
+        this.sciencespe,
+        this.technology,
+        this.technologyspe,
+        this.resonance,
+        this.hunger,
+        this.humanity,
+        this.discipline1,
+        this.discipline2,
+        this.discipline3,
+        this.superficialdamage,
+        this.aggravateddamage,
+        this.damagewillpower,
+        this.taintedhumanity,
+        this.discipline1value,
+        this.discipline2value,
+        this.discipline3value
+      );
+    },
+    async lowerdamagedwillpower() {
+      this.damagewillpower = this.damagewillpower - 1;
+      await CharacterService.updateCharacter(
+        this.$route.params.id,
+        this.name,
+        this.sire,
+        this.concept,
+        this.ambition,
+        this.chronicle,
+        this.desire,
+        this.predator,
+        this.clan,
+        this.generation,
+        this.strength,
+        this.dexterity,
+        this.stamina,
+        this.charisma,
+        this.manipulation,
+        this.composure,
+        this.intelligence,
+        this.wits,
+        this.resolve,
+        this.health,
+        this.willpower,
+        this.athletics,
+        this.athleticsspe,
+        this.brawl,
+        this.brawlspe,
+        this.craft,
+        this.craftspe,
+        this.drive,
+        this.drivespe,
+        this.firearms,
+        this.firearmsspe,
+        this.larceny,
+        this.larcenyspe,
+        this.melee,
+        this.meleespe,
+        this.stealth,
+        this.stealthspe,
+        this.survival,
+        this.survivalspe,
+        this.animalken,
+        this.animalkenspe,
+        this.etiquette,
+        this.etiquettespe,
+        this.insight,
+        this.insightspe,
+        this.intimidation,
+        this.intimidationspe,
+        this.leadership,
+        this.leadershipspe,
+        this.performance,
+        this.performancespe,
+        this.persuasion,
+        this.persuasionspe,
+        this.streetwise,
+        this.streetwisespe,
+        this.subterfuge,
+        this.subterfugespe,
+        this.academics,
+        this.academicsspe,
+        this.awareness,
+        this.awarenessspe,
+        this.finance,
+        this.financespe,
+        this.investigation,
+        this.investigationspe,
+        this.medicine,
+        this.medicinespe,
+        this.occult,
+        this.occultspe,
+        this.politics,
+        this.politicsspe,
+        this.science,
+        this.sciencespe,
+        this.technology,
+        this.technologyspe,
+        this.resonance,
+        this.hunger,
+        this.humanity,
+        this.discipline1,
+        this.discipline2,
+        this.discipline3,
+        this.superficialdamage,
+        this.aggravateddamage,
+        this.damagewillpower,
+        this.taintedhumanity,
+        this.discipline1value,
+        this.discipline2value,
+        this.discipline3value
+      );
+    },
+    /////////////HUNBGER////////////////////////////////////////////
+    async addhunger() {
+      this.hunger = this.hunger + 1;
+      await CharacterService.updateCharacter(
+        this.$route.params.id,
+        this.name,
+        this.sire,
+        this.concept,
+        this.ambition,
+        this.chronicle,
+        this.desire,
+        this.predator,
+        this.clan,
+        this.generation,
+        this.strength,
+        this.dexterity,
+        this.stamina,
+        this.charisma,
+        this.manipulation,
+        this.composure,
+        this.intelligence,
+        this.wits,
+        this.resolve,
+        this.health,
+        this.willpower,
+        this.athletics,
+        this.athleticsspe,
+        this.brawl,
+        this.brawlspe,
+        this.craft,
+        this.craftspe,
+        this.drive,
+        this.drivespe,
+        this.firearms,
+        this.firearmsspe,
+        this.larceny,
+        this.larcenyspe,
+        this.melee,
+        this.meleespe,
+        this.stealth,
+        this.stealthspe,
+        this.survival,
+        this.survivalspe,
+        this.animalken,
+        this.animalkenspe,
+        this.etiquette,
+        this.etiquettespe,
+        this.insight,
+        this.insightspe,
+        this.intimidation,
+        this.intimidationspe,
+        this.leadership,
+        this.leadershipspe,
+        this.performance,
+        this.performancespe,
+        this.persuasion,
+        this.persuasionspe,
+        this.streetwise,
+        this.streetwisespe,
+        this.subterfuge,
+        this.subterfugespe,
+        this.academics,
+        this.academicsspe,
+        this.awareness,
+        this.awarenessspe,
+        this.finance,
+        this.financespe,
+        this.investigation,
+        this.investigationspe,
+        this.medicine,
+        this.medicinespe,
+        this.occult,
+        this.occultspe,
+        this.politics,
+        this.politicsspe,
+        this.science,
+        this.sciencespe,
+        this.technology,
+        this.technologyspe,
+        this.resonance,
+        this.hunger,
+        this.humanity,
+        this.discipline1,
+        this.discipline2,
+        this.discipline3,
+        this.superficialdamage,
+        this.aggravateddamage,
+        this.damagewillpower,
+        this.taintedhumanity,
+        this.discipline1value,
+        this.discipline2value,
+        this.discipline3value
+      );
+    },
+    async lowerhunger() {
+      this.hunger = this.hunger - 1;
+      await CharacterService.updateCharacter(
+        this.$route.params.id,
+        this.name,
+        this.sire,
+        this.concept,
+        this.ambition,
+        this.chronicle,
+        this.desire,
+        this.predator,
+        this.clan,
+        this.generation,
+        this.strength,
+        this.dexterity,
+        this.stamina,
+        this.charisma,
+        this.manipulation,
+        this.composure,
+        this.intelligence,
+        this.wits,
+        this.resolve,
+        this.health,
+        this.willpower,
+        this.athletics,
+        this.athleticsspe,
+        this.brawl,
+        this.brawlspe,
+        this.craft,
+        this.craftspe,
+        this.drive,
+        this.drivespe,
+        this.firearms,
+        this.firearmsspe,
+        this.larceny,
+        this.larcenyspe,
+        this.melee,
+        this.meleespe,
+        this.stealth,
+        this.stealthspe,
+        this.survival,
+        this.survivalspe,
+        this.animalken,
+        this.animalkenspe,
+        this.etiquette,
+        this.etiquettespe,
+        this.insight,
+        this.insightspe,
+        this.intimidation,
+        this.intimidationspe,
+        this.leadership,
+        this.leadershipspe,
+        this.performance,
+        this.performancespe,
+        this.persuasion,
+        this.persuasionspe,
+        this.streetwise,
+        this.streetwisespe,
+        this.subterfuge,
+        this.subterfugespe,
+        this.academics,
+        this.academicsspe,
+        this.awareness,
+        this.awarenessspe,
+        this.finance,
+        this.financespe,
+        this.investigation,
+        this.investigationspe,
+        this.medicine,
+        this.medicinespe,
+        this.occult,
+        this.occultspe,
+        this.politics,
+        this.politicsspe,
+        this.science,
+        this.sciencespe,
+        this.technology,
+        this.technologyspe,
+        this.resonance,
+        this.hunger,
+        this.humanity,
+        this.discipline1,
+        this.discipline2,
+        this.discipline3,
+        this.superficialdamage,
+        this.aggravateddamage,
+        this.damagewillpower,
+        this.taintedhumanity,
+        this.discipline1value,
+        this.discipline2value,
+        this.discipline3value
+      );
     },
   },
 };
 </script>
 
 <style scoped>
-
 </style>
