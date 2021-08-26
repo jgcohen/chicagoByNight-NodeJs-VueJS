@@ -8,23 +8,11 @@ class NpcService {
        return axios.get(url).then(res => res.data).catch(err => err)
     }
 
-//    static insertCity (name,description){
-//        return axios.post(url, {
-//            name,description
-//        })
-//    }
-
-//    static deleteCity(id){
-//        return axios.delete(`${url}/${id}`)
-//    }
-
-//    static getCity(id){
-//        return axios.get(`${url}/${id}`).then(res => res.data[0]).catch(err => err)
-//    }
-
-//    static updateCity(id,name,description){
-//        return axios.patch(`${url}/${id}`, { name, description })
-//    }
+    static insertNpc (firstname, lastname,description, status, race, clan, faction, image){
+        return axios.post(url, {
+            firstname, lastname,description, status, race, clan, faction, image
+        })
+    }
 }
 
 export default NpcService

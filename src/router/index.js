@@ -5,6 +5,7 @@ import SingleCity from '../views/SingleCity.vue'
 import SignUp from '../views/SignUp.vue'
 import Login from '../views/Login.vue'
 import Npc from '../views/Npc.vue'
+import NpcCreation from '../views/NpcCreation.vue'
 import CharacterCreation from '../views/CharacterCreation.vue'
 import SingleCharacter from '../views/SingleCharacter.vue'
 import CharacterSheet from '../views/CharacterSheet.vue'
@@ -49,6 +50,11 @@ const routes = [
     path:'/npc',
     name:'npc',
     component: Npc
+  },
+  {
+    path:'/npccreation',
+    name:'npccreation',
+    component: NpcCreation
   },
   {
     path:'/charactercreation',

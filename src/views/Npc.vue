@@ -17,6 +17,14 @@
       <p class="text">Race: {{npc.race}}</p>
       <p class="text">Clan: {{npc.clan}}</p>
       <p class="text">Faction: {{npc.faction}}</p>
+        
+<!-- 
+      <div v-if="user._id === '610d06d929873844083145a7'">
+
+  <input class="form-control" @change="onFileSelected" type="file" id="image">
+     <button @click="upload" class="btn btn-primary" type="submit">Submit form</button>
+      </div> -->
+      
      </div>
     </div>
   </div>
@@ -24,10 +32,14 @@
 
 <script>
 import NpcService from "../services/NpcService";
+import VueJwtDecode from "vue-jwt-decode";
+import UserService from '../services/UserService'
 export default {
   name: "NpcComponent",
   data() {
     return {
+      selectedFile: null,
+      user:"",
       npcs: [],
       error: "",
       name: "",
@@ -36,7 +48,8 @@ export default {
       status:"",
       race:"",
       clan:"",
-      faction:""
+      faction:"",
+      image:""
 
     };
   },
@@ -46,7 +59,37 @@ export default {
     } catch (err) {
       this.error = err.message;
     }
+
+     if (localStorage.getItem('token') === null) {
+      this.$router.push('/login');
+    }else{
+      // fetch("http://localhost:3000/user",{
+      //   method:'GET',
+      //   header:{
+      //     'Authorization':localStorage.getItem('token') 
+      //   }
+      // }).then(res=>res.json())
+      console.log(localStorage.getItem('token') )
+    }
+    let token = localStorage.getItem('token')
+    let decoded = VueJwtDecode.decode(token) 
+     
+    
+
+   let user = await UserService.getUser(decoded.user._id)
+   this.user= user
   },
+  // methods: {
+  //   onFileSelected(event){
+  //     this.selectedFile= event.target.files[0]
+  //     console.log( this.selectedFile)
+  //   },
+  //   upload() {
+
+  //   }
+  // },
+
+  
 };
 </script>
 
