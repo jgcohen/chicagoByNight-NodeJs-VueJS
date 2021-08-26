@@ -60,17 +60,17 @@
       <div class="col">
         <p>Health Max: {{ character.health }}</p>
         <p>Superficial damages: {{ character.superficialdamage }}</p>
-        <button v-on:click="addsuperficialdamage">+</button>
         <button v-on:click="lowersuperficialdamage">-</button>
+        <button v-on:click="addsuperficialdamage">+</button>
         <p>Aggravated damages: {{ character.aggravateddamage }}</p>
-        <button v-on:click="addaggravateddamage">+</button>
         <button v-on:click="loweraggravateddamage">-</button>
+        <button v-on:click="addaggravateddamage">+</button>
       </div>
       <div class="col">
         <p>Willpower Max: {{ character.willpower }}</p>
         <p>Damaged Willpower: {{ character.damagewillpower }}</p>
-        <button v-on:click="adddamagedwillpower">+</button>
         <button v-on:click="lowerdamagedwillpower">-</button>
+        <button v-on:click="adddamagedwillpower">+</button>
       </div>
     </div>
     <div class="row border-bottom border-danger">
@@ -136,12 +136,33 @@
       <p v-if="technologyspe">( {{character.technologyspe}} )</p>
       </div>
     </div>
+     <div class="row border-bottom border-danger">
+      <h3 class="text-danger border-bottom border-danger">Disciplines</h3>
+      <div class="col">
+            <p>{{character.discipline1}}</p>
+            <p>{{character.discipline1value}}</p>
+      </div>
+      <div class="col"><p>{{character.discipline2}}</p>
+            <p>{{character.discipline2value}}</p></div>
+      <div class="col"><p>{{character.discipline3}}</p>
+            <p>{{character.discipline3value}}</p></div>
+    </div>
     <div class="row">
       <div class="col">
       Hunger: {{character.hunger}}
-        <button v-on:click="addhunger">+</button>
         <button v-on:click="lowerhunger">-</button>
+        <button v-on:click="addhunger">+</button>
       </div>
+    </div>
+    <div class="row">
+    <div v-if="advantages" class="col">
+      <p>Advantages:</p>
+      <p>{{character.advantages}}</p>
+    </div>
+    <div  v-if="flaws" class="col">
+      <p>Flaws:</p>
+      <p>{{character.flaws}}</p>
+    </div>
     </div>
   </div>
 </template>
@@ -242,6 +263,9 @@ export default {
       discipline1value: "",
       discipline2value: "",
       discipline3value: "",
+      advantages:"",
+      flaws:"",
+      notes:""
     };
   },
 
@@ -337,14 +361,17 @@ export default {
       this.discipline1value = this.character.discipline1value;
       this.discipline2value = this.character.discipline2value;
       this.discipline3value = this.character.discipline3value;
+      this.advantages = this.character.advantages;
+       this.flaws = this.character.flaws;
+       this.notes = this.character.notes;
     } catch (err) {
       this.error = err.message;
     }
   },
   methods: {
     async addsuperficialdamage() {
+      if(this.superficialdamage < 10 && this.superficialdamage < this.health ){
       this.superficialdamage = this.superficialdamage + 1;
-      console.log(this.superficialdamage);
       await CharacterService.updateCharacter(
         this.$route.params.id,
         this.name,
@@ -433,12 +460,18 @@ export default {
         this.taintedhumanity,
         this.discipline1value,
         this.discipline2value,
-        this.discipline3value
-      );
+        this.discipline3value,
+        
+      )
+     
+    location.reload()
+      } else {
+        this.addaggravateddamage()
+      }
     },
     async lowersuperficialdamage() {
+      if(this.superficialdamage > 0){
       this.superficialdamage = this.superficialdamage - 1;
-      console.log(this.superficialdamage);
       await CharacterService.updateCharacter(
         this.$route.params.id,
         this.name,
@@ -529,8 +562,11 @@ export default {
         this.discipline2value,
         this.discipline3value
       );
+      location.reload()
+      }
     },
     async addaggravateddamage() {
+      if(this.aggravateddamage < this.health){
       this.aggravateddamage = this.aggravateddamage + 1;
       await CharacterService.updateCharacter(
         this.$route.params.id,
@@ -622,8 +658,11 @@ export default {
         this.discipline2value,
         this.discipline3value
       );
+      location.reload()
+      }
     },
     async loweraggravateddamage() {
+      if(this.aggravateddamage > 0 ) {
       this.aggravateddamage = this.aggravateddamage - 1;
       await CharacterService.updateCharacter(
         this.$route.params.id,
@@ -715,9 +754,12 @@ export default {
         this.discipline2value,
         this.discipline3value
       );
+      location.reload()
+      }
     },
     ////////WILLPOWER////////////////////////////////////////////////////////////////
 async adddamagedwillpower() {
+  if(this.damagewillpower < this.willpower){
       this.damagewillpower = this.damagewillpower + 1;
       await CharacterService.updateCharacter(
         this.$route.params.id,
@@ -809,8 +851,11 @@ async adddamagedwillpower() {
         this.discipline2value,
         this.discipline3value
       );
+location.reload()
+  }
     },
     async lowerdamagedwillpower() {
+      if(this.damagewillpower > 0) {
       this.damagewillpower = this.damagewillpower - 1;
       await CharacterService.updateCharacter(
         this.$route.params.id,
@@ -902,9 +947,12 @@ async adddamagedwillpower() {
         this.discipline2value,
         this.discipline3value
       );
+location.reload()
+      }
     },
     /////////////HUNBGER////////////////////////////////////////////
     async addhunger() {
+      if(this.hunger < 5){
       this.hunger = this.hunger + 1;
       await CharacterService.updateCharacter(
         this.$route.params.id,
@@ -996,8 +1044,11 @@ async adddamagedwillpower() {
         this.discipline2value,
         this.discipline3value
       );
+location.reload()
+      }
     },
     async lowerhunger() {
+      if(this.hunger >0){
       this.hunger = this.hunger - 1;
       await CharacterService.updateCharacter(
         this.$route.params.id,
@@ -1089,6 +1140,8 @@ async adddamagedwillpower() {
         this.discipline2value,
         this.discipline3value
       );
+      location.reload()
+      }
     },
   },
 };

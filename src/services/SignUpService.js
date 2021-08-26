@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://localhost:3000/SignUp'
+const url = 'http://192.168.1.28:3000/SignUp'
 
 class SignUpService {
 

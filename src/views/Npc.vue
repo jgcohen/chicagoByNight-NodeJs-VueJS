@@ -11,12 +11,12 @@
         v-bind:index="index"
         v-bind:key="npc._id"
       >
-      <p class="text">{{npc.firstname}} {{npc.lastname}}</p>
-      <p class="text">{{npc.description}}</p>
-      <p class="text">{{npc.status}}</p>
-      <p class="text">{{npc.race}}</p>
-      <p class="text">{{npc.clan}}</p>
-      <p class="text">{{npc.faction}}</p>
+      <p class="text">Name: {{npc.firstname}} {{npc.lastname}}</p>
+      <p class="text">Description: {{npc.description}}</p>
+      <p class="text">Status: {{npc.status}}</p>
+      <p class="text">Race: {{npc.race}}</p>
+      <p class="text">Clan: {{npc.clan}}</p>
+      <p class="text">Faction: {{npc.faction}}</p>
      </div>
     </div>
   </div>

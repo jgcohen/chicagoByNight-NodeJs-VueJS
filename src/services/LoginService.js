@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://localhost:3000/login'
+const url = 'http://192.168.1.28:3000/login'
 
 class LoginService {
 

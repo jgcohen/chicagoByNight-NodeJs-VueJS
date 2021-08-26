@@ -1,6 +1,83 @@
 <template>
   <div class="container m-5">
     <div class="row">
+      <div class="row">
+        <div class="col">
+          <!-- predator -->
+          <p>
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#predatorl"
+              aria-expanded="false"
+              aria-controls="predatorl"
+            >
+              Predator Rules
+            </button>
+          </p>
+          <div class="collapse" id="predatorl">
+            <div class="card card-body">
+              <p>Pick your predator type (p175) and apply it:</p>
+              <p>-Add one of the listed specialities</p>
+              <p>-Add one dot to a listed Discipline</p>
+              <p>-Apply any associated Advantages or flaws</p>
+            </div>
+          </div>
+          <!-- predator ending -->
+        </div>
+        <div class="col">
+          <!-- Convictions and Touchstones -->
+          <p>
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#convictionl"
+              aria-expanded="false"
+              aria-controls="convictionl"
+            >
+              Convictions and Touchstones Rules
+            </button>
+          </p>
+          <div class="collapse" id="convictionl">
+            <div class="card card-body">
+              <p>Select one to three Convictions (p172)</p>
+              <p>
+                -Create an egal number of Touchstones (p173), each connected to
+                one Conviction
+              </p>
+              <p>-Add one dot to a listed Discipline</p>
+              <p>
+                Humanity is set to 7 (if you need to change it, you ll be able
+                to update it later)
+              </p>
+            </div>
+          </div>
+          <!-- Convictions ending -->
+        </div>
+        <!-- Generation -->
+        <div class="col">
+        <p>
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#generationl"
+            aria-expanded="false"
+            aria-controls="generationl"
+          >
+            Generation Rules
+          </button>
+        </p>
+        <div class="collapse" id="generationl">
+          <div class="card card-body">
+            <p>See with your storyteller for the generation (p137)</p>
+          </div>
+        </div>
+        <!-- generation Ending -->
+        </div>
+      </div>
       <div class="col">
         <div class="form-floating">
           <input
@@ -72,9 +149,21 @@
           v-model="clan"
         >
           <option selected>Clan</option>
-          <option value="Lasombra">Lasombra</option>
+          <option value="Banu Haqim">Banu Haqim</option>
           <option value="Brujah">Brujah</option>
+          <option value="Gangrel">Gangrel</option>
+          <option value="Lasombra">Lasombra</option>
+          <option value="Malkavians">Malkavians</option>
+          <option value="Nosferatu">Nosferatu</option>
+          <option value="Ravnos">Ravnos</option>
+          <option value="Salubrian">Salubrian</option>
+          <option value="Toreador">Toreador</option>
+          <option value="Tzimisce">Tzimisce</option>
           <option value="Tremere">Tremere</option>
+          <option value="Ventrue">Ventrue</option>
+          <option value="The Caitiff">The Caitiff</option>
+          <option value="The Ministry">The Ministry</option>
+          <option value="The Thin-Blooded">The Thin-Blooded</option>
         </select>
       </div>
     </div>
@@ -112,13 +201,43 @@
           v-model="generation"
         >
           <option selected>Generation</option>
+          <option value="16">16</option>
+          <option value="15">15</option>
           <option value="14">14</option>
           <option value="13">13</option>
           <option value="12">12</option>
+          <option value="11">11</option>
+          <option value="10">10</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
+
+
         </select>
       </div>
     </div>
     <div class="mt-3">
+      <p>
+        <button
+          class="btn btn-primary mt-5"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseExample"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          Attributes Rules
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <p>Take :</p>
+
+          <p>-One Attribute to 4</p>
+          <p>-Three Attributes at 3</p>
+          <p>-Four Attributes at 2</p>
+          <p>-One Attribute at 1</p>
+        </div>
+      </div>
       <h3 class="text-danger">Attributes</h3>
       <div class="row">
         <div class="col">
@@ -267,6 +386,94 @@
     </div>
     <div class="mt-3">
       <!-- SKILLS/////////////////////////////////////////////////////////////////// -->
+
+      <p>
+        <button
+          class="btn btn-primary mt-5"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#skills"
+          aria-expanded="false"
+          aria-controls="skills"
+        >
+          Skills Rules
+        </button>
+      </p>
+      <div class="collapse" id="skills">
+        <div class="card card-body">
+          Pick One Skill Distribution:
+          <!-- Jack -->
+          <p>
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#jack"
+              aria-expanded="false"
+              aria-controls="jack"
+            >
+              Jack of all trades
+            </button>
+          </p>
+          <div class="collapse" id="jack">
+            <div class="card card-body">
+              <p>-One Skill at 3</p>
+              <p>-Eight Skills at 2</p>
+              <p>-Ten skills at 1</p>
+            </div>
+          </div>
+          <!-- Jack Ending -->
+          <!-- Balanced -->
+          <p>
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#balanced"
+              aria-expanded="false"
+              aria-controls="balanced"
+            >
+              Balanced
+            </button>
+          </p>
+          <div class="collapse" id="balanced">
+            <div class="card card-body">
+              <p>-Three Skills at 3</p>
+              <p>-Five Skills at 2</p>
+              <p>-Seven skills at 1</p>
+            </div>
+          </div>
+          <!-- Balanced ending -->
+          <!-- Specialist -->
+          <p>
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#specialist"
+              aria-expanded="false"
+              aria-controls="specialist"
+            >
+              Specialist
+            </button>
+          </p>
+          <div class="collapse" id="specialist">
+            <div class="card card-body">
+              <p>-One Skills at 4</p>
+              <p>-Three Skills at 3</p>
+              <p>-Three skills at 2</p>
+              <p>-Three skills at 1</p>
+            </div>
+          </div>
+          <!-- Specialist Ending -->
+
+          <p>
+            Add free specialities to Academics, Craft, performance and Science
+            Skikks
+          </p>
+          <p>Take one more free speciality</p>
+        </div>
+      </div>
       <h3 class="text-danger">Skills</h3>
       <div class="row">
         <div class="col">
@@ -680,7 +887,7 @@
       <!-- LIGNE 6//////////////////////////////////////////////////////////////// -->
       <div class="row">
         <div class="col">
-          <p>larceny</p>
+          <p>Larceny</p>
           <select
             class="form-select form-select-lg"
             aria-label="larceny"
@@ -1009,6 +1216,27 @@
         <h3 class="text-danger">Disciplines</h3>
       </div>
       <!-- DISCIPLINES///////////////////////////////////////////////////////////////////////// -->
+
+      <p>
+        <button
+          class="btn btn-primary"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#disciplines"
+          aria-expanded="false"
+          aria-controls="disicplines"
+        >
+          Discipline Rules
+        </button>
+      </p>
+      <div class="collapse" id="disciplines">
+        <div class="card card-body">
+          <p>
+            Choose two of your clan Disciplines. Put two dots in one and one dot
+            in the other.
+          </p>
+        </div>
+      </div>
       <div class="row">
         <div class="col">
           <p>First Discipline</p>
@@ -1092,6 +1320,23 @@
       </div>
       <div class="row">
         <!-- END///////////////////////////////////////////////////////////////////////// -->
+        <p>
+          <button
+            class="btn btn-primary mt-5"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseExample"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            Health and Willpower rules
+          </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            Health = Stamina +3 Willpower = Composure + Resolve
+          </div>
+        </div>
         <div class="col">
           <p>Health</p>
           <select
@@ -1134,6 +1379,47 @@
           </select>
           <div class="form-floating"></div>
         </div>
+      </div>
+      <!-- Advantages and flaws -->
+      <div class="row">
+        <h3 class="text-danger">Advantages and flaws</h3>
+        <p>
+        <button
+          class="btn btn-primary"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#adv"
+          aria-expanded="false"
+          aria-controls="adv"
+        >
+          Advantages and Flaws Rules
+        </button>
+      </p>
+      <div class="collapse" id="adv">
+        <div class="card card-body">
+          <p>
+           Spend 7 points on Advantages, and take 2 points of flaws (p179) in addition to the ones gained from your predator type.
+          </p>
+        </div>
+      </div>
+        <div class="col">
+        <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" 
+            aria-label="advantages"
+            id="advantages"
+            v-model="advantages"></textarea>
+  <label for="floatingTextarea">Advantages:</label>
+</div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" 
+            aria-label="advantages"
+            id="flaws"
+            v-model="flaws"></textarea>
+  <label for="floatingTextarea">Flaws:</label>
+</div>
+      </div>
       </div>
     </div>
 
@@ -1238,6 +1524,9 @@ export default {
       discipline1value: "",
       discipline2value: "",
       discipline3value: "",
+      advantages:"",
+      flaws:"",
+      notes:""
     };
   },
 
@@ -1348,12 +1637,12 @@ export default {
         (this.taintedhumanity = 0),
         this.discipline1value,
         this.discipline2value,
-        this.discipline3value
+        this.discipline3value,
+        this.advantages,
+        this.flaws
       );
       this.$router.push("/");
     },
   },
 };
 </script>
-
-

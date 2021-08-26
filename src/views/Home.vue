@@ -2,17 +2,18 @@
 <div>
   <div>
      <div id="nav">
-    <button @click="logout">logout</button>
-    <router-link to="/cities">Cities</router-link>|
+    <!-- <router-link to="/cities">Cities</router-link>| -->
     <router-link to="/npc">Famous faces</router-link>|
      <router-link to="/charactercreation">Create a character</router-link>|
+    <button @click="logout">logout</button>
   <router-view/>
   </div>
   </div>
   <div>
     <div v-if="user">
-    <h1 class="text-danger">HELLO {{user.pseudo}} </h1>
-    <h2>your email is: {{ user.email }}</h2>
+    <h3 class="text-danger">Welcome {{user.pseudo}} </h3>
+    <h5>Your characters: </h5>
+    <!-- <h2>your email is: {{ user.email }}</h2> -->
   </div>
   </div>
    
@@ -26,9 +27,10 @@
         v-bind:key="character._id"
         
       >
-      <div v-if="character.owner === user._id">
-           <p class="text post"><router-link :to="`/character/${character._id}`">Character sheet: {{character.name}}</router-link> </p>
-           <p class="text post"><router-link :to="`/updatecharacter/${character._id}`">Update: {{character.name}}</router-link> </p>
+      <div class="row m-2" v-if="character.owner === user._id">
+            <p class="text post col">{{character.name}}</p>
+           <p class="text post col"><router-link :to="`/character/${character._id}`">Character sheet</router-link> </p>
+           <p class="text post col"><router-link :to="`/updatecharacter/${character._id}`">Update</router-link> </p>
      </div>
      </div>
     </div>
@@ -102,7 +104,7 @@ p.error {
 }
 p.post {
   position: relative;
-  border: 1px solid #5bd658;
+  border: 1px solid #ee3030;
   background-color: 3bcffb8;
   padding: 10px 10px 30px 10px;
   margin-bottom: 15px;
@@ -112,7 +114,7 @@ div.created-at {
   top: 0;
   left: 0;
   padding: 5px 15px 5px 15px;
-  background-color: darkgreen;
+  background-color: rgb(207, 38, 16);
 }
 p.text {
   font-size: 22px;

@@ -71,10 +71,21 @@
           id="clan"
           v-model="clan"
         >
-          <option selected>Clan</option>
-          <option value="Lasombra">Lasombra</option>
+          <option value="Banu Haqim">Banu Haqim</option>
           <option value="Brujah">Brujah</option>
+          <option value="Gangrel">Gangrel</option>
+          <option value="Lasombra">Lasombra</option>
+          <option value="Malkavians">Malkavians</option>
+          <option value="Nosferatu">Nosferatu</option>
+          <option value="Ravnos">Ravnos</option>
+          <option value="Salubrian">Salubrian</option>
+          <option value="Toreador">Toreador</option>
+          <option value="Tzimisce">Tzimisce</option>
           <option value="Tremere">Tremere</option>
+          <option value="Ventrue">Ventrue</option>
+          <option value="The Caitiff">The Caitiff</option>
+          <option value="The Ministry">The Ministry</option>
+          <option value="The Thin-Blooded">The Thin-Blooded</option>
         </select>
       </div>
     </div>
@@ -112,9 +123,15 @@
           v-model="generation"
         >
           <option selected>Generation</option>
+          <option value="16">16</option>
+          <option value="15">15</option>
           <option value="14">14</option>
           <option value="13">13</option>
           <option value="12">12</option>
+          <option value="11">11</option>
+          <option value="10">10</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
         </select>
       </div>
     </div>
@@ -680,7 +697,7 @@
       <!-- LIGNE 6//////////////////////////////////////////////////////////////// -->
       <div class="row">
         <div class="col">
-          <p>larceny</p>
+          <p>Larceny</p>
           <select
             class="form-select form-select-lg"
             aria-label="larceny"
@@ -1006,6 +1023,84 @@
         </div>
       </div>
       <div class="row">
+        <h3 class="text-danger">Disciplines</h3>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              v-model="discipline1"
+              class="form-control"
+              id="discipline1"
+              placeholder="discipline1"
+            />
+            <label for="discipline1">Discipline</label>
+          </div>
+          <select
+            class="form-select form-select-lg"
+            aria-label=""
+            id="discipline1value"
+            v-model="discipline1value"
+          >
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              v-model="discipline2"
+              class="form-control"
+              id="discipline2"
+              placeholder="discipline2"
+            />
+            <label for="discipline2">Discipline if any</label>
+          </div>
+          <select
+            class="form-select form-select-lg"
+            aria-label=""
+            id="discipline2value"
+            v-model="discipline2value"
+          >
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              v-model="discipline3"
+              class="form-control"
+              id="discipline3"
+              placeholder="discipline3"
+            />
+            <label for="discipline3">Discipline</label>
+          </div>
+          <select
+            class="form-select form-select-lg"
+            aria-label=""
+            id="discipline3value"
+            v-model="discipline3value"
+          >
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
         <!-- END///////////////////////////////////////////////////////////////////////// -->
         <div class="col">
           <p>Health</p>
@@ -1051,10 +1146,35 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            aria-label="advantages"
+            id="advantages"
+            v-model="advantages"
+          ></textarea>
+          <label for="floatingTextarea">Advantages:</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            aria-label="advantages"
+            id="flaws"
+            v-model="flaws"
+          ></textarea>
+          <label for="floatingTextarea">Flaws:</label>
+        </div>
+      </div>
+    </div>
     <button v-on:click="updateCharacter">Update!</button>
   </div>
 </template>
-
 
 <script>
 import CharacterService from "../services/CharacterService";
@@ -1141,7 +1261,19 @@ export default {
       resonance: "",
       hunger: "",
       humanity: "",
-      disciplines: "",
+      discipline1: "",
+      discipline2: "",
+      discipline3: "",
+      superficialdamage: "",
+      aggravateddamage: "",
+      damagewillpower: "",
+      taintedhumanity: "",
+      discipline1value: "",
+      discipline2value: "",
+      discipline3value: "",
+      advantages: "",
+      flaws: "",
+      notes: "",
     };
   },
 
@@ -1226,6 +1358,19 @@ export default {
       this.technologyspe = this.character.technologyspe;
       this.resonance = this.character.resonance;
       this.hunger = this.character.hunger;
+      this.discipline1 = this.character.discipline1;
+      this.discipline2 = this.character.discipline2;
+      this.discipline3 = this.character.discipline3;
+      this.superficialdamage = this.character.superficialdamage;
+      this.aggravateddamage = this.character.aggravateddamage;
+      this.damagewillpower = this.character.damagewillpower;
+      this.taintedhumanity = this.character.taintedhumanity;
+      this.discipline1value = this.character.discipline1value;
+      this.discipline2value = this.character.discipline2value;
+      this.discipline3value = this.character.discipline3value;
+      this.advantages = this.character.advantages;
+      this.flaws = this.character.flaws;
+      this.notes = this.character.notes;
     } catch (err) {
       this.error = err.message;
     }
@@ -1311,9 +1456,23 @@ export default {
           this.technology,
           this.technologyspe,
           this.resonance,
-          this.hunger
+          this.hunger,
+           this.humanity,
+        this.discipline1,
+        this.discipline2,
+        this.discipline3,
+        this.superficialdamage,
+        this.aggravateddamage,
+        this.damagewillpower,
+        this.taintedhumanity,
+        this.discipline1value,
+        this.discipline2value,
+        this.discipline3value,
+        this.advantages,
+        this.flaws
         );
         this.characters = await CharacterService.getCharacters();
+        this.$router.push("/");
       }
     },
   },

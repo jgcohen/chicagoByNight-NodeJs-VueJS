@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:3000/character";
+const url = "http://192.168.1.28:3000/character";
 
 class CharacterService {
   static async getCharacters() {
@@ -125,7 +125,10 @@ class CharacterService {
     taintedhumanity,
     discipline1value,
     discipline2value,
-    discipline3value
+    discipline3value,
+    advantages,
+    flaws,
+    notes
   ) {
     return axios.post(url, {
       owner,
@@ -242,7 +245,10 @@ class CharacterService {
     taintedhumanity,
     discipline1value,
     discipline2value,
-    discipline3value
+    discipline3value,
+    advantages,
+    flaws,
+    notes
 
     });
   }
@@ -346,7 +352,9 @@ class CharacterService {
     taintedhumanity,
     discipline1value,
     discipline2value,
-    discipline3value
+    discipline3value, advantages,
+    flaws,
+    notes
   ) {
     return axios.patch(`${url}/${id}`, {
       name,
@@ -435,7 +443,10 @@ class CharacterService {
     taintedhumanity,
     discipline1value,
     discipline2value,
-    discipline3value
+    discipline3value,
+    advantages,
+    flaws,
+    notes
     });
   }
 }
