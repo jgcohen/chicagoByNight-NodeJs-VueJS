@@ -370,7 +370,7 @@ export default {
   },
   methods: {
     async addsuperficialdamage() {
-      if(this.superficialdamage < 10 && this.superficialdamage < this.health ){
+      if(this.superficialdamage < this.health && this.superficialdamage + this.aggravateddamage < this.health){
       this.superficialdamage = this.superficialdamage + 1;
       await CharacterService.updateCharacter(
         this.$route.params.id,
@@ -568,6 +568,9 @@ export default {
     async addaggravateddamage() {
       if(this.aggravateddamage < this.health){
       this.aggravateddamage = this.aggravateddamage + 1;
+      if((this.superficialdamage + this.aggravateddamage) > this.health){
+        this.lowersuperficialdamage()
+      }
       await CharacterService.updateCharacter(
         this.$route.params.id,
         this.name,
