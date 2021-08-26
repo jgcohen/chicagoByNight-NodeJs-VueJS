@@ -1,21 +1,25 @@
 <template>
   <div class="container">
+       <h3 class="text-danger mt-3">Log in</h3>
     <div>
-      <p>Log In</p>
-      <label for="name">E mail</label>
-      <input type="email" id="email" v-model="email" placeholder="Email" />
-      <label for="password">Password</label>
+      <label  for="name">E-mail</label>
+      <input class="form-control mb-3" type="email" id="email" v-model="email" placeholder="Email" />
+      <label  for="password">Password</label>
       <input
+      class="form-control mb-3"
         type="password"
         id="password"
         v-model="password"
         placeholder="password"
       />
-      <button v-on:click="connectUser">Log In</button>
-      <p>Not registerd yet?</p>
+      <button  class="btn btn-primary mt-1" v-on:click="connectUser">Log In</button>
+      <div class="text-danger mt-5" v-if="error">
+        {{error}}
+      </div>
+      <p class="mt-5">Not registerd yet?</p>
       <router-link to="/signup">register</router-link>
     </div>
-    <div v-if="user">
+    <div class="text-danger m-3" v-if="user">
       <p>{{ user.data.body._id }}</p>
     </div>
   </div>
@@ -45,7 +49,7 @@ export default {
           }
         }, err => {
           console.log(err.response);
-          this.error = err.response.data.error
+          this.error = "Wrong Email or Password"
         })
      }
 

@@ -1,14 +1,17 @@
 <template>
   <div class="container">
+    <h3 class="text-danger mt-3">Please Register</h3>
       <div>
-<label for="email">email</label>
-<input type="email" id="email" v-model="email" placeholder="Email">
-<label for="password">Password</label>
-<input type="password" id="password" v-model="password" placeholder="password">
-<label for="pseudo">pseudo</label>
-<input type="text" id="pseudo" v-model="pseudo" placeholder="pseudo">
-<button v-on:click="createUser">Register </button>
-
+<label for="email">Your Email</label>
+<input type="email" class="form-control mb-3"  id="email" v-model="email" placeholder="Email">
+<label for="password">Password (8 caracters minimum)</label>
+<input type="password" class="form-control mb-3" id="password" v-model="password" placeholder="password">
+<label for="pseudo">Pseudo</label>
+<input type="text" class="form-control mb-3" id="pseudo" v-model="pseudo" placeholder="Pseudo">
+<button class="btn btn-primary mt-1" v-on:click="createUser">Register </button>
+<div class=" m-3 text-danger" v-if="error">
+  {{error}}
+</div>
     </div>
   </div>
 </template>
@@ -31,8 +34,12 @@ export default {
 
   methods: {
      async createUser(){
+       if(this.password.length >= 8 ){
       await SignUpService.insertUser(this.email,this.password,this.pseudo)  
       this.$router.push('/login')
+       } else{
+         this.error = "Password is too short"
+       }
     },
   },
 };
